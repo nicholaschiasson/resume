@@ -1,5 +1,153 @@
-\documentclass[11pt]{article}
+% resume.tex
+% vim:set ft=tex spell:
 
+\documentclass[10pt,letterpaper]{article}
+\usepackage[letterpaper,margin=0.75in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{mdwlist}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{tgpagella}
+\pagestyle{empty}
+\setlength{\tabcolsep}{0em}
+
+% indentsection style, used for sections that aren't already in lists
+% that need indentation to the level of all text in the document
+\newenvironment{indentsection}[1]%
+{\begin{list}{}%
+  {\setlength{\leftmargin}{#1}}%
+  \item[]%
+}
+{\end{list}}
+
+% opposite of above; bump a section back toward the left margin
+\newenvironment{unindentsection}[1]%
+{\begin{list}{}%
+  {\setlength{\leftmargin}{-0.5#1}}%
+  \item[]%
+}
+{\end{list}}
+
+% format two pieces of text, one left aligned and one right aligned
+\newcommand{\headerrow}[2]
+{\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+  #1 &
+  #2 \\
+\end{tabular*}}
+
+% make "C++" look pretty when used in text by touching up the plus signs
+\newcommand{\CPP}
+{C\nolinebreak[4]\hspace{-.05em}\raisebox{.22ex}{\footnotesize\bf ++}}
+
+% and the actual content starts here
 \begin{document}
-Nicholas Chiasson
+
+\begin{center}
+{\LARGE \textbf{Nicholas Chiasson}}
+
+6917 Lakes Park Drive\ \ \textbullet
+\ \ Greely, ON K4P1M6
+\\
+(613) 875-3155\ \ \textbullet
+\ \ nicholasomerchiasson@gmail.com
+\\
+https://nicholaschiasson.github.io\ \ \textbullet
+\ \ https://github.com/nicholaschiasson
+\end{center}
+
+\hrule
+\vspace{-0.4em}
+\subsection*{Experience}
+
+\begin{itemize}
+  \parskip=0.1em
+
+  \item
+  \headerrow
+    {\textbf{Espial Group Inc.}}
+    {\textbf{Ottawa, ON}}
+  \\
+  \headerrow
+    {\emph{Embedded Device Software Developer -- CO-OP}}
+    {\emph{January 2016 -- August 2016}}
+  \begin{itemize*}
+    \item // Duties \& tasks
+  \end{itemize*}
+
+  \item
+  \headerrow
+    {\textbf{Enhansoft Inc.}}
+    {\textbf{Nepean, ON}}
+  \\
+  \headerrow
+    {\emph{Junior Programmer -- CO-OP}}
+    {\emph{May 2015 -- August 2015}}
+  \begin{itemize*}
+    \item // Duties \& tasks
+  \end{itemize*}
+
+  \item
+  \headerrow
+    {\textbf{LiveQoS Inc.}}
+    {\textbf{Kanata, ON}}
+  \\
+  \headerrow
+    {\emph{Software Developer Intern -- CO-OP}}
+    {\emph{September 2014 -- December 2014}}
+  \begin{itemize*}
+    \item // Duties \& tasks
+  \end{itemize*}
+
+\end{itemize}
+
+\hrule
+\vspace{-0.4em}
+\subsection*{Education}
+
+\begin{itemize}
+  \parskip=0.1em
+
+  \item
+  \headerrow
+    {\textbf{Carleton University}}
+    {\textbf{Ottawa, ON}}
+  \\
+  \headerrow
+    {\emph{B.C.S. Honours, Computer Game Development, Minor in Japanese, Cooperative Education}}
+    {\emph{2012 -- 2017}}
+  \begin{itemize*}
+    \item CGPA: 9.92 / 12.00\ \ (B+)
+    \item Scholarships: \$8000 Entrance Award, \$2000 Robertson Award
+  \end{itemize*}
+
+\end{itemize}
+
+\hrule
+\vspace{-0.4em}
+\subsection*{Core Technical Skills}
+
+\begin{indentsection}{\parindent}
+\hyphenpenalty=1000
+\begin{description*}
+  \item[Languages:]
+  C, \CPP, C\#, Java, JavaScript, Python, Rust, Lisp (Racket), Bash, HTML, CSS,
+  Lua, Visual Basic, Objective-C, \LaTeX, SQL
+  \\
+  \item[Frameworks:]
+  OpenGL, DirectX, WebGL, OGRE 3D, Qt, Node.js, Express.js, XNA, .NET
+  \\
+  \item[Software:]
+  Atom, Visual Studio, Xamarin Studio, Oracle Eclipse, Xcode, Vim, Unity,
+  GitKraken, Git, SVN, GitHub, GitLab, Travis CI, Jenkins, Bash, PowerShell,
+  JIRA, Mozilla Firefox, Google Chrome, Microsoft Office Suite
+  \\
+  \item[Systems:]
+  Windows XP through 10, Mac OS x, Ubuntu, Linux Mint, Fedora, Android, iOS
+  \\
+  \item[Concepts:]
+  Agile with Scrum, Object Oriented Paradigm, Functional Paradigm, Mac and Linux
+  Kernel Module Development
+\end{description*}
+\end{indentsection}
+
 \end{document}
