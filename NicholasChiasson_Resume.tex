@@ -8,7 +8,10 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{tgpagella}
-\pagestyle{empty}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
 \setlength{\tabcolsep}{0em}
 
 % indentsection style, used for sections that aren't already in lists
@@ -39,11 +42,18 @@
 \newcommand{\CPP}
 {C\nolinebreak[4]\hspace{-.05em}\raisebox{.22ex}{\footnotesize\bf ++}}
 
+% defining my name to be used as a title
+\newcommand{\formalname}
+{Nicholas O. Chiasson}
+
+\fancyhf{}
+\rfoot{\formalname\ |\ Page \thepage\ of\ \pageref{LastPage}}
+
 % and the actual content starts here
 \begin{document}
 
 \begin{center}
-{\LARGE \textbf{Nicholas O. Chiasson}}
+{\LARGE \textbf{\formalname}}
 
 6917 Lakes Park Drive, Greely, ON K4P1M6
 \\
@@ -71,12 +81,23 @@ https://nicholaschiasson.github.io\ \ \textbullet
     {\emph{January 2016 -- August 2016}}
   \begin{description*}
     \item[Applied Skills:]
-    C, Bash, Oracle Eclipse, Jenkins, Javascript, Netscape Plugin API, Set-top
+    C, Bash, Oracle Eclipse, Jenkins, Javascript, Netscape Plugin API, Set Top
     Box Hardware, REST, Fedora, Scrum, JIRA
+    \item[Responsibilities:]
+    \hfill
+    \begin{itemize*}
+      \item Implemented features for television set top box client application to
+      handle data management and retrieval from customer front end REST API server
+      \item Responsible for delicately porting and merging a large customer
+      product development branch with main project branch without introducing
+      regression
+      \item Created new build script and integrated it with existing build server
+      to satisfy requirements of the fast paced delivery cycle with client
+      \item Practiced an agile development method by working in a small scrum team
+      iterating on single week long sprints, participating in weekly sprint demos,
+      reviews, and planning, as well as daily stand up meetings
+    \end{itemize*}
   \end{description*}
-  \begin{itemize*}
-    \item // Duties \& tasks
-  \end{itemize*}
 
   \item
   \headerrow
@@ -91,10 +112,19 @@ https://nicholaschiasson.github.io\ \ \textbullet
     C\#, VBScript, SQL, Visual Studio, Windows Management Instrumentation,
     Microsoft Business Intelligence Development Studio, Microsoft SQL Server
     Reporting Services
+    \item[Responsibilities:]
+    \hfill
+    \begin{itemize*}
+      \item Developed an expanded version of an existing proprietary data
+      collection product based on a set of requirements with new features to be
+      implemented, migrating the code base from primarily VBScript to C\# .NET
+      \item Worked directly with Windows Management Instrumentation (WMI) to
+      retrieve and store information necessary for the execution of the product
+      \item Designed several tens of Microsoft SQL Server Reporting Services
+      reports to represent data collected by the product and to be viewed by
+      customers
+    \end{itemize*}
   \end{description*}
-  \begin{itemize*}
-    \item // Duties \& tasks
-  \end{itemize*}
 
   \item
   \headerrow
@@ -108,10 +138,20 @@ https://nicholaschiasson.github.io\ \ \textbullet
     \item[Applied Skills:]
     Objective-C, C, Xcode, Bash, Vim, SVN, Kernel Module Development, Mac OS
     X, Android
+    \item[Responsibilities:]
+    \hfill
+    \begin{itemize*}
+      \item Inspected code base for Linux network kernel module to form basis of
+      company technology and used this research to create model for
+      corresponding Mac OS X network kernel extension
+      \item Designed and developed graphical user interface application for
+      configuration of and statistics display for Mac OS X network kernel
+      extension via socket communication
+      \item Created Mac OS X installer dmg file used for installing or updating
+      selective components of Mac OS X product including an uninstaller script
+      and pre-configuration of network kernel extension
+    \end{itemize*}
   \end{description*}
-  \begin{itemize*}
-    \item // Duties \& tasks
-  \end{itemize*}
 
 \end{itemize}
 
