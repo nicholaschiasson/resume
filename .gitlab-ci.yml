@@ -5,9 +5,10 @@
 image: blang/latex
 
 variables:
-  AUTHOR: "Nicholas Omer Chiasson"
+  AUTHOR: "Nicholas Chiasson"
 
 build:
+  stage: build
   script:
     - latexmk -pdf
   artifacts:
