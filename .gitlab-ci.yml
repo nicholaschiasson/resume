@@ -4,9 +4,13 @@
 # possible alternative: https://github.com/natlownes/docker-latex
 image: blang/latex
 
+variables:
+  AUTHOR: Nicholas Omer Chiasson
+
 build:
   script:
     - latexmk -pdf
   artifacts:
+    name: "${AUTHOR// /}_Resume_Package"
     paths:
       - "*.pdf"
