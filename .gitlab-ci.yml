@@ -5,7 +5,7 @@
 image: blang/latex
 
 variables:
-  AUTHOR: Nicholas Omer Chiasson
+  AUTHOR: "Nicholas Omer Chiasson"
 
 build:
   script:
