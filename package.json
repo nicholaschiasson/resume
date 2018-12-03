@@ -1,0 +1,41 @@
+{
+  "name": "resume",
+  "version": "0.0.1",
+  "description": "Nicholas Omer Chiasson's Resume",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run | grep [^\\]]build: | while read build; do npm run ${build}; done",
+    "build:json-resume": "npm i jsonresume-theme-${JSON_RESUME_THEME} && resume export \"${JSON_RESUME_NAME}\" --format \"${JSON_RESUME_FORMAT}\" --theme \"${JSON_RESUME_THEME}\"",
+    "build:latex": "latexmk -pdf",
+    "clean": "rm -rf node_modules",
+    "test": "npm run | grep [^\\]]test: | while read test; do npm run ${test}; done",
+    "test:schema": "resume test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/nicholaschiasson/resume.git"
+  },
+  "author": "nicholasomerchiasson@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/nicholaschiasson/resume/issues"
+  },
+  "homepage": "https://gitlab.com/nicholaschiasson/resume#readme",
+  "private": true,
+  "devDependencies": {
+    "resume-cli": "1.1.2"
+  },
+  "dependencies": {
+    "jsonresume-theme-elegant": "^1.12.1",
+    "jsonresume-theme-elite": "^1.1.2",
+    "jsonresume-theme-eloquent": "^4.1.0",
+    "jsonresume-theme-flat": "^0.3.7",
+    "jsonresume-theme-kendall": "^0.1.19",
+    "jsonresume-theme-kwan": "0.0.2",
+    "jsonresume-theme-material": "^1.1.2",
+    "jsonresume-theme-modern": "0.0.18",
+    "jsonresume-theme-moon": "^1.7.22",
+    "jsonresume-theme-spartan": "^0.2.1",
+    "jsonresume-theme-stackoverflow": "^1.4.0"
+  }
+}

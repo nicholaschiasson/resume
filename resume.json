@@ -1,0 +1,172 @@
+{
+  "basics": {
+    "name": "Nicholas Omer Chiasson",
+    "label": "Software Engineer",
+    "picture": "https://www.libravatar.org/user/069ed8daa69512877bce00a50ffaf7e7c699b5f35e2fee629da9e10fa742b14f.jpg",
+    "email": "nicholasomerchiasson@gmail.com",
+    "phone": "(613) 875-3155",
+    "website": "https://nicholaschiasson.gitlab.io",
+		"summary": "Experienced Software Engineer with interests in and skills suitable for a wide range of tech faculties including game and application development, full stack web development, cloud computing and micro services, embedded software development, and dev ops.",
+    "location": {
+      "address": "3025 Sherbrooke Street West",
+      "postalCode": "H3Z 1A1",
+      "city": "Montreal",
+      "countryCode": "CA",
+      "region": "Quebec"
+    },
+    "profiles": [{
+      "network": "GitLab",
+      "username": "nicholaschiasson",
+      "url": "https://gitlab.com/nicholaschiasson"
+    }, {
+      "network": "GitHub",
+      "username": "nicholaschiasson",
+      "url": "https://github.com/nicholaschiasson"
+    }, {
+      "network": "LinkedIn",
+      "username": "nicholaschiasson",
+      "url": "https://linkedin.com/in/nicholaschiasson"
+    }, {
+      "network": "Twitter",
+      "username": "n88888888c",
+      "url": "https://twitter.com/n88888888c"
+    }, {
+      "network": "Instagram",
+      "username": "nicholasomerchiasson",
+      "url": "https://www.instagram.com/nicholasomerchiasson"
+    }]
+  },
+  "work": [{
+    "company": "Espial Group Inc.",
+    "position": "Embedded Device Software Developer -- CO-OP",
+    "website": "https://espial.com",
+    "startDate": "2016-01-04",
+    "endDate": "2016-08-26",
+    "summary": "Applied Skills: C, Bash, Oracle Eclipse, Jenkins, Javascript, Netscape Plugin API, Set Top Box Hardware, REST, Fedora, Scrum, JIRA",
+    "highlights": [
+      "Implemented features for television set top box client application to handle data management and retrieval from customer front end REST API server",
+      "Responsible for delicately porting and merging a large customer product development branch with main project branch without introducing regression",
+      "Created new build script and integrated it with existing build server to satisfy requirements of the fast paced delivery cycle with client",
+      "Practiced an agile development method by working in a small scrum team iterating on single week long sprints, participating in weekly sprint demos, reviews, and planning, as well as daily stand up meetings"
+    ]
+  }, {
+    "company": "Enhansoft Inc.",
+    "position": "Junior Programmer -- CO-OP",
+    "website": "https://www.enhansoft.com",
+    "startDate": "2015-05-12",
+    "endDate": "2015-08-28",
+    "summary": "Applied Skills: C#, VBScript, SQL, Visual Studio, Windows Management Instrumentation, Microsoft Business Intelligence Development Studio, Microsoft SQL Server Reporting Services, Windows 7",
+    "highlights": [
+      "Developed an expanded version of an existing proprietary data collection product based on a set of requirements with new features to be implemented, migrating the code base from primarily VBScript to C# .NET",
+      "Worked directly with Windows Management Instrumentation (WMI) to retrieve and store information necessary for the execution of the product",
+      "Designed several tens of Microsoft SQL Server Reporting Services reports to represent data collected by the product and to be viewed by customers"
+    ]
+  }, {
+    "company": "LiveQoS Inc.",
+    "position": "Software Developer Intern -- CO-OP",
+    "website": "https://liveqos.com",
+    "startDate": "2014-09-02",
+    "endDate": "2014-12-19",
+    "summary": "Applied Skills: Objective-C, C, Xcode, Bash, Vim, SVN, Kernel Module Development, Mac OS X, Android",
+    "highlights": [
+      "Inspected code base for Linux network kernel module to form basis of company technology and used this research to create model for corresponding Mac OS X network kernel extension",
+      "Designed and developed graphical user interface application for configuration of and statistics display for Mac OS X network kernel extension via socket communication",
+      "Created Mac OS X installer dmg file used for installing or updating selective components of Mac OS X product including an uninstaller script and pre-configuration of network kernel extension"
+    ]
+  }],
+  "skills": [{
+    "name": "Languages",
+    "keywords": [
+      "C",
+      "C++",
+      "C#",
+      "Java",
+      "JavaScript",
+      "Python",
+      "Rust",
+      "Lisp (Racket)",
+      "Bash",
+      "HTML",
+      "CSS",
+      "Lua",
+      "Visual Basic",
+      "Objective-C",
+      "LaTeX",
+      "SQL"
+    ]
+  }, {
+    "name": "Frameworks",
+    "keywords": [
+      "OpenGL",
+      "DirectX",
+      "WebGL",
+      "OGRE 3D",
+      "Qt",
+      "Node.js",
+      "Express.js",
+      "XNA",
+      ".NET"
+    ]
+  }, {
+    "name": "Software",
+    "keywords": [
+      "Atom",
+      "Visual Studio",
+      "Xamarin Studio",
+      "Oracle Eclipse",
+      "Xcode",
+      "Vim",
+      "Unity",
+      "GitKraken",
+      "Git",
+      "SVN",
+      "GitHub",
+      "GitLab",
+      "Travis CI",
+      "Jenkins",
+      "Bash",
+      "PowerShell",
+      "JIRA",
+      "Mozilla Firefox",
+      "Google Chrome",
+      "Microsoft Office Suite"
+    ]
+  }, {
+    "name": "Systems",
+    "keywords": [
+      "Windows XP through 10",
+      "Mac OS X",
+      "Ubuntu",
+      "Linux Mint",
+      "Fedora",
+      "Android",
+      "iOS"
+    ]
+  }, {
+    "name": "Concepts",
+    "keywords": [
+      "Agile with Scrum",
+      "Object Oriented Paradigm",
+      "Functional Paradigm",
+      "Mac and Linux Kernel Module Development"
+    ]
+  }],
+  "education": [{
+    "institution": "Carleton University",
+    "area": "B.C.S. Honours, Computer Game Development, Minor in Japanese, Cooperative Education",
+    "studyType": "Bachelor",
+    "startDate": "2012-09-06",
+    "endDate": "2017-04-28",
+    "gpa": "9.92 / 12.00 (B+)"
+  }],
+  "languages": [{
+    "language": "English",
+    "fluency": "Native speaker"
+  }, {
+    "language": "French",
+    "fluency": "Limited working proficiency"
+  }, {
+    "language": "Japanese",
+    "fluency": "Elementary proficiency"
+  }]
+}
