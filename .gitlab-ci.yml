@@ -177,6 +177,22 @@ build:json-resume:html:stackoverflow:
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: stackoverflow
 
+build:json-resume:html:material:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: material
+
+build:json-resume:html:moon:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: moon
+
 build:json-resume:pdf:elegant:
   <<: *build_template
   variables:
@@ -280,6 +296,22 @@ build:json-resume:pdf:stackoverflow:
     JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: stackoverflow
+
+build:json-resume:pdf:material:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: material
+
+build:json-resume:pdf:moon:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: moon
 
 build:latex:
   <<: *build_template
