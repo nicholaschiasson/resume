@@ -193,6 +193,14 @@ build:json-resume:html:moon:
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: moon
 
+build:json-resume:html:eloquent:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: eloquent
+
 build:json-resume:pdf:elegant:
   <<: *build_template
   variables:
@@ -312,6 +320,14 @@ build:json-resume:pdf:moon:
     JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: moon
+
+build:json-resume:pdf:eloquent:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: eloquent
 
 build:latex:
   <<: *build_template
