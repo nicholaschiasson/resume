@@ -1,0 +1,91 @@
+{
+  "basics": {
+    "name": "Nicholas Omer Chiasson",
+    "label": "Software Engineer",
+    "picture": "https://www.libravatar.org/user/069ed8daa69512877bce00a50ffaf7e7c699b5f35e2fee629da9e10fa742b14f.jpg",
+    "email": "nicholasomerchiasson@gmail.com",
+    "phone": "(613) 875-3155",
+    "website": "https://nicholaschiasson.gitlab.io",
+		"summary": "Experienced Software Engineer with interests in and skills suitable for a wide range of tech faculties including game and application development, full stack web development, cloud computing and micro services, embedded software development, and dev ops.",
+    "location": {
+      "address": "3025 Sherbrooke Street West",
+      "postalCode": "H3Z 1A1",
+      "city": "Montreal",
+      "countryCode": "CA",
+      "region": "Quebec"
+    },
+    "profiles": [{
+      "network": "GitLab",
+      "username": "nicholaschiasson",
+      "url": "https://gitlab.com/nicholaschiasson"
+    }, {
+      "network": "GitHub",
+      "username": "nicholaschiasson",
+      "url": "https://github.com/nicholaschiasson"
+    }, {
+      "network": "LinkedIn",
+      "username": "nicholaschiasson",
+      "url": "https://linkedin.com/in/nicholaschiasson"
+    }, {
+      "network": "Twitter",
+      "username": "n88888888c",
+      "url": "https://twitter.com/n88888888c"
+    }, {
+      "network": "Instagram",
+      "username": "nicholasomerchiasson",
+      "url": "https://www.instagram.com/nicholasomerchiasson"
+    }]
+  },
+  "work": [{
+    "company": "Company",
+    "position": "President",
+    "website": "http://company.com",
+    "startDate": "2013-01-01",
+    "endDate": "2014-01-01",
+    "summary": "Description...",
+    "highlights": [
+      "Started the company"
+    ]
+  }],
+  "education": [{
+    "institution": "University",
+    "area": "Software Development",
+    "studyType": "Bachelor",
+    "startDate": "2011-01-01",
+    "endDate": "2013-01-01",
+    "gpa": "4.0",
+    "courses": [
+      "DB1101 - Basic SQL"
+    ]
+  }],
+  "awards": [{
+    "title": "Award",
+    "date": "2014-11-01",
+    "awarder": "Company",
+    "summary": "There is no spoon."
+  }],
+  "skills": [{
+    "name": "Web Development",
+    "level": "Master",
+    "keywords": [
+      "HTML",
+      "CSS",
+      "Javascript"
+    ]
+  }],
+  "languages": [{
+    "language": "English",
+    "fluency": "Native speaker"
+  }],
+  "interests": [{
+    "name": "Wildlife",
+    "keywords": [
+      "Ferrets",
+      "Unicorns"
+    ]
+  }],
+  "references": [{
+    "name": "Jane Doe",
+    "reference": "Reference..."
+  }]
+}
