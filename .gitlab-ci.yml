@@ -319,7 +319,7 @@ build:latex:
   script:
     - apt-get update
     - apt-get install -y curl
-    - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+    - curl -sL https://deb.nodesource.com/setup_10.x | bash -
     - apt-get install -y nodejs
     - *build_script
   variables:
