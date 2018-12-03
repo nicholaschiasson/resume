@@ -285,8 +285,9 @@ build:latex:
   <<: *build_template
   image: blang/latex
   script:
+    - apt install -y curl
     - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-    - sudo apt-get install -y nodejs
+    - apt install -y nodejs
     - *build_script
   variables:
     BUILD_TYPE: latex
