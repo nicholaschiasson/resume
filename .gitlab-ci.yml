@@ -60,8 +60,9 @@ test:schema:
 
 # Template for build jobs
 .build:template: &build_template
+  image: node:dubnium-alpine
   stage: build
-  script: &test_script |
+  script: &build_script |
     npm install
     npm run build:${BUILD_TYPE}
   artifacts:
@@ -72,27 +73,221 @@ test:schema:
   except:
     - master
 
+build:json-resume:html:elegant:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: elegant
+
+build:json-resume:html:paper:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: paper
+
+build:json-resume:html:kendall:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: kendall
+
 build:json-resume:html:flat:
   <<: *build_template
-  image: node:dubnium-alpine
   variables:
     BUILD_TYPE: json-resume
     JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: flat
 
+build:json-resume:html:modern:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: modern
+
+build:json-resume:html:classy:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: classy
+
+build:json-resume:html:class:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: class
+
+build:json-resume:html:short:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: short
+
+build:json-resume:html:slick:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: slick
+
+build:json-resume:html:kwan:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: kwan
+
+build:json-resume:html:onepage:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: onepage
+
+build:json-resume:html:spartan:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: spartan
+
+build:json-resume:html:stackoverflow:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: html
+    JSON_RESUME_THEME: stackoverflow
+
+build:json-resume:pdf:elegant:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: elegant
+
+build:json-resume:pdf:paper:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: paper
+
+build:json-resume:pdf:kendall:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: kendall
+
 build:json-resume:pdf:flat:
   <<: *build_template
-  image: node:dubnium-alpine
   variables:
     BUILD_TYPE: json-resume
     JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: flat
 
+build:json-resume:pdf:modern:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: modern
+
+build:json-resume:pdf:classy:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: classy
+
+build:json-resume:pdf:class:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: class
+
+build:json-resume:pdf:short:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: short
+
+build:json-resume:pdf:slick:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: slick
+
+build:json-resume:pdf:kwan:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: kwan
+
+build:json-resume:pdf:onepage:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: onepage
+
+build:json-resume:pdf:spartan:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: spartan
+
+build:json-resume:pdf:stackoverflow:
+  <<: *build_template
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: stackoverflow
+
 build:latex:
   <<: *build_template
   image: blang/latex
+  script:
+    - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+    - sudo apt-get install -y nodejs
+    - *build_script
   variables:
     BUILD_TYPE: latex
 
