@@ -380,11 +380,6 @@ build:latex:
   variables:
     BUILD_TYPE: latex
 
-package:
-  except:
-    - master
-    - latest
-
 # Generates a new tag from commits to master
 publish:tag:
   stage: publish
