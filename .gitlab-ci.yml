@@ -70,11 +70,8 @@ test:schema:
     JSON_RESUME_NAME: ${GITLAB_USER_NAME// /}
   artifacts:
     paths:
-      - .out/*
-  cache:
-    paths:
-      - "${VERSION_FILE}"
-    policy: pull
+      - *.html
+      - *.pdf
   except:
     - master
     - latest
@@ -379,6 +376,11 @@ build:latex:
     - *build_script
   variables:
     BUILD_TYPE: latex
+
+package:
+  except:
+    - master
+    - latest
 
 # Generates a new tag from commits to master
 publish:tag:
