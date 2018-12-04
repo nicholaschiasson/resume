@@ -81,6 +81,7 @@ build:json-resume:html:elegant:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: elegant
@@ -90,6 +91,7 @@ build:json-resume:html:paper:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: paper
@@ -99,6 +101,7 @@ build:json-resume:html:kendall:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: kendall
@@ -108,6 +111,7 @@ build:json-resume:html:flat:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: flat
@@ -117,6 +121,7 @@ build:json-resume:html:modern:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: modern
@@ -126,6 +131,7 @@ build:json-resume:html:classy:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: classy
@@ -135,6 +141,7 @@ build:json-resume:html:class:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: class
@@ -144,6 +151,7 @@ build:json-resume:html:short:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: short
@@ -153,6 +161,7 @@ build:json-resume:html:slick:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: slick
@@ -162,6 +171,7 @@ build:json-resume:html:kwan:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: kwan
@@ -171,6 +181,7 @@ build:json-resume:html:onepage:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: onepage
@@ -180,6 +191,7 @@ build:json-resume:html:spartan:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: spartan
@@ -189,6 +201,7 @@ build:json-resume:html:stackoverflow:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: stackoverflow
@@ -198,6 +211,7 @@ build:json-resume:html:material:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: material
@@ -207,6 +221,7 @@ build:json-resume:html:moon:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: moon
@@ -216,6 +231,7 @@ build:json-resume:html:eloquent:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: eloquent
@@ -225,6 +241,7 @@ build:json-resume:pdf:elegant:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: elegant
@@ -234,6 +251,7 @@ build:json-resume:pdf:paper:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: paper
@@ -243,6 +261,7 @@ build:json-resume:pdf:kendall:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: kendall
@@ -252,6 +271,7 @@ build:json-resume:pdf:flat:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: flat
@@ -261,6 +281,7 @@ build:json-resume:pdf:modern:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: modern
@@ -270,6 +291,7 @@ build:json-resume:pdf:classy:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: classy
@@ -279,6 +301,7 @@ build:json-resume:pdf:class:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: class
@@ -288,6 +311,7 @@ build:json-resume:pdf:short:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: short
@@ -297,6 +321,7 @@ build:json-resume:pdf:slick:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: slick
@@ -306,6 +331,7 @@ build:json-resume:pdf:kwan:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: kwan
@@ -315,6 +341,7 @@ build:json-resume:pdf:onepage:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: onepage
@@ -324,6 +351,7 @@ build:json-resume:pdf:spartan:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: spartan
@@ -333,6 +361,7 @@ build:json-resume:pdf:stackoverflow:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: stackoverflow
@@ -342,6 +371,7 @@ build:json-resume:pdf:material:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: material
@@ -351,6 +381,7 @@ build:json-resume:pdf:moon:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: moon
@@ -360,6 +391,7 @@ build:json-resume:pdf:eloquent:
   script:
     - *build_script
   variables:
+    <<: *build_variables
     BUILD_TYPE: json-resume
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: eloquent
