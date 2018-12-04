@@ -49,6 +49,8 @@ classify:version:master:
   stage: test
   image: node:dubnium-alpine
   script: &test_script |
+    echo "${OUTPUT_RESUME_DIR}"
+    echo "${OUTPUT_RESUME_NAME}"
     npm install
     npm run $CI_JOB_NAME
   except:
