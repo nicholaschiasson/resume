@@ -64,13 +64,9 @@ test:schema:
   image: node:dubnium-alpine
   stage: build
   script: &build_script |
-    echo "${OUTPUT_RESUME_DIR}"
-    echo "${OUTPUT_RESUME_NAME}"
-    echo "${BUILD_TYPE}"
-    echo "${JSON_RESUME_FORMAT}"
-    echo "${JSON_RESUME_THEME}"
     npm install
     npm run build:${BUILD_TYPE}
+    mv "*.pdf" "*.html" "${OUTPUT_RESUME_DIR}/"
   artifacts:
     paths:
       - "${GITLAB_USER_NAME// /}*"
@@ -475,7 +471,6 @@ build:latex:
     - mkdir -p "${OUTPUT_RESUME_DIR}"
     - export OUTPUT_RESUME_NAME="${GITLAB_USER_NAME// /}"
     - *build_script
-    - mv "*.pdf" "*.html" "${OUTPUT_RESUME_DIR}/${OUTPUT_RESUME_NAME}"
   variables:
     BUILD_TYPE: latex
 
