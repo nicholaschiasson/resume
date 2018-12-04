@@ -475,6 +475,7 @@ build:latex:
     - mkdir -p "${OUTPUT_RESUME_DIR}"
     - export OUTPUT_RESUME_NAME="${GITLAB_USER_NAME// /}"
     - *build_script
+    - mv "*.pdf" "*.html" "${OUTPUT_RESUME_DIR}/${OUTPUT_RESUME_NAME}"
   variables:
     BUILD_TYPE: latex
 
