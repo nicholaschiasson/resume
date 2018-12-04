@@ -65,267 +65,337 @@ test:schema:
   script: &build_script |
     npm install
     npm run build:${BUILD_TYPE}
+  variables:
+    OUTPUT_RESUME_DIR: "${GITLAB_USER_NAME// /}-$(cat ${CLASSIFY_VERSION_FILE})"
+    OUTPUT_RESUME_NAME: "${GITLAB_USER_NAME// /}-$(cat ${CLASSIFY_VERSION_FILE})"
   artifacts:
-    name: "${GITLAB_USER_NAME// /}_Resume_Package"
+    name: "${OUTPUT_RESUME_DIR}"
     paths:
-      - "*.html"
-      - "*.pdf"
+      - "${OUTPUT_RESUME_DIR}"
+  cache:
+    paths:
+      - "${CLASSIFY_VERSION_FILE}"
+    policy: push
   except:
     - master
 
 build:json-resume:html:elegant:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: elegant
 
 build:json-resume:html:paper:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: paper
 
 build:json-resume:html:kendall:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: kendall
 
 build:json-resume:html:flat:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: flat
 
 build:json-resume:html:modern:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: modern
 
 build:json-resume:html:classy:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: classy
 
 build:json-resume:html:class:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: class
 
 build:json-resume:html:short:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: short
 
 build:json-resume:html:slick:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: slick
 
 build:json-resume:html:kwan:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: kwan
 
 build:json-resume:html:onepage:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: onepage
 
 build:json-resume:html:spartan:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: spartan
 
 build:json-resume:html:stackoverflow:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: stackoverflow
 
 build:json-resume:html:material:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: material
 
 build:json-resume:html:moon:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: moon
 
 build:json-resume:html:eloquent:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: html
     JSON_RESUME_THEME: eloquent
 
 build:json-resume:pdf:elegant:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: elegant
 
 build:json-resume:pdf:paper:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: paper
 
 build:json-resume:pdf:kendall:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: kendall
 
 build:json-resume:pdf:flat:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: flat
 
 build:json-resume:pdf:modern:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: modern
 
 build:json-resume:pdf:classy:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: classy
 
 build:json-resume:pdf:class:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: class
 
 build:json-resume:pdf:short:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: short
 
 build:json-resume:pdf:slick:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: slick
 
 build:json-resume:pdf:kwan:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: kwan
 
 build:json-resume:pdf:onepage:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: onepage
 
 build:json-resume:pdf:spartan:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: spartan
 
 build:json-resume:pdf:stackoverflow:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: stackoverflow
 
 build:json-resume:pdf:material:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: material
 
 build:json-resume:pdf:moon:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: moon
 
 build:json-resume:pdf:eloquent:
   <<: *build_template
+  script:
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}/${JSON_RESUME_THEME}"
+    - *build_script
   variables:
     BUILD_TYPE: json-resume
-    JSON_RESUME_NAME: ${GITLAB_USER_NAME}
     JSON_RESUME_FORMAT: pdf
     JSON_RESUME_THEME: eloquent
 
@@ -337,6 +407,7 @@ build:latex:
     - apt-get install -y curl
     - curl -sL https://deb.nodesource.com/setup_10.x | bash -
     - apt-get install -y nodejs
+    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${BUILD_TYPE}"
     - *build_script
   variables:
     BUILD_TYPE: latex

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run | grep [^\\]]build: | while read build; do npm run ${build}; done",
-    "build:json-resume": "npm i jsonresume-theme-${JSON_RESUME_THEME} && resume export \"${JSON_RESUME_NAME}\" --format \"${JSON_RESUME_FORMAT}\" --theme \"${JSON_RESUME_THEME}\"",
-    "build:latex": "latexmk -pdf",
+    "build:json-resume": "npm i jsonresume-theme-${JSON_RESUME_THEME} && resume export \"${OUTPUT_RESUME_DIR}/${OUTPUT_RESUME_NAME}\" --format \"${JSON_RESUME_FORMAT}\" --theme \"${JSON_RESUME_THEME}\"",
+    "build:latex": "latexmk -jobname=\"${OUTPUT_RESUME_DIR}/${OUTPUT_RESUME_NAME}\" -pdf",
     "clean": "rm -rf node_modules",
     "test": "npm run | grep [^\\]]test: | while read test; do npm run ${test}; done",
     "test:schema": "resume test"
