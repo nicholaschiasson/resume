@@ -24,7 +24,7 @@ variables:
 version:branches:
   <<: *version_template
   variables:
-    VERSION: "${CI_COMMIT_REF_SLUG}-${CI_PIPELINE_ID}"
+    VERSION: "${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHA}"
   only:
     - branches
 
