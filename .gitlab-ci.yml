@@ -1,39 +1,14 @@
 image: alpine:latest
 
 stages:
-  - version
   - classify
   - test
   - build
+  - deploy
   - publish
 
 variables:
   CLASSIFY_VERSION_FILE: CLASSIFY_VERSION
-  OUTPUT_RESUME_DIR: .out
-  VERSION_FILE: VERSION
-
-.version:template: &version_template
-  stage: version
-  script:
-    - echo "${VERSION}" > "${VERSION_FILE}"
-  cache:
-    paths:
-      - "${VERSION_FILE}"
-    policy: push
-
-version:branches:
-  <<: *version_template
-  variables:
-    VERSION: "${CI_COMMIT_REF_SLUG}-${CI_COMMIT_SHA}"
-  only:
-    - branches
-
-version:tags:
-  <<: *version_template
-  variables:
-    VERSION: "${CI_COMMIT_TAG}"
-  only:
-    - tags
 
 # Classify version template
 .classify:version:template: &classify_version_template
@@ -89,11 +64,10 @@ test:schema:
   image: node:dubnium-alpine
   stage: build
   script: &build_script |
-    export OUTPUT_RESUME_NAME="${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})"
-    echo "${OUTPUT_RESUME_DIR}"
-    echo "${OUTPUT_RESUME_NAME}"
     npm install
     npm run build:${BUILD_TYPE}
+  variables: &build_variables
+    JSON_RESUME_NAME: ${GITLAB_USER_NAME// /}
   artifacts:
     paths:
       - .out/*
@@ -103,11 +77,11 @@ test:schema:
     policy: pull
   except:
     - master
+    - latest
 
 build:json-resume:html:elegant:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -117,7 +91,6 @@ build:json-resume:html:elegant:
 build:json-resume:html:paper:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -127,7 +100,6 @@ build:json-resume:html:paper:
 build:json-resume:html:kendall:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -137,7 +109,6 @@ build:json-resume:html:kendall:
 build:json-resume:html:flat:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -147,7 +118,6 @@ build:json-resume:html:flat:
 build:json-resume:html:modern:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -157,7 +127,6 @@ build:json-resume:html:modern:
 build:json-resume:html:classy:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -167,7 +136,6 @@ build:json-resume:html:classy:
 build:json-resume:html:class:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -177,7 +145,6 @@ build:json-resume:html:class:
 build:json-resume:html:short:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -187,7 +154,6 @@ build:json-resume:html:short:
 build:json-resume:html:slick:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -197,7 +163,6 @@ build:json-resume:html:slick:
 build:json-resume:html:kwan:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -207,7 +172,6 @@ build:json-resume:html:kwan:
 build:json-resume:html:onepage:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -217,7 +181,6 @@ build:json-resume:html:onepage:
 build:json-resume:html:spartan:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -227,7 +190,6 @@ build:json-resume:html:spartan:
 build:json-resume:html:stackoverflow:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -237,7 +199,6 @@ build:json-resume:html:stackoverflow:
 build:json-resume:html:material:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -247,7 +208,6 @@ build:json-resume:html:material:
 build:json-resume:html:moon:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -257,7 +217,6 @@ build:json-resume:html:moon:
 build:json-resume:html:eloquent:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -267,7 +226,6 @@ build:json-resume:html:eloquent:
 build:json-resume:pdf:elegant:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -277,7 +235,6 @@ build:json-resume:pdf:elegant:
 build:json-resume:pdf:paper:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -287,7 +244,6 @@ build:json-resume:pdf:paper:
 build:json-resume:pdf:kendall:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -297,7 +253,6 @@ build:json-resume:pdf:kendall:
 build:json-resume:pdf:flat:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -307,7 +262,6 @@ build:json-resume:pdf:flat:
 build:json-resume:pdf:modern:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -317,7 +271,6 @@ build:json-resume:pdf:modern:
 build:json-resume:pdf:classy:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -327,7 +280,6 @@ build:json-resume:pdf:classy:
 build:json-resume:pdf:class:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -337,7 +289,6 @@ build:json-resume:pdf:class:
 build:json-resume:pdf:short:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -347,7 +298,6 @@ build:json-resume:pdf:short:
 build:json-resume:pdf:slick:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -357,7 +307,6 @@ build:json-resume:pdf:slick:
 build:json-resume:pdf:kwan:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -367,7 +316,6 @@ build:json-resume:pdf:kwan:
 build:json-resume:pdf:onepage:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -377,7 +325,6 @@ build:json-resume:pdf:onepage:
 build:json-resume:pdf:spartan:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -387,7 +334,6 @@ build:json-resume:pdf:spartan:
 build:json-resume:pdf:stackoverflow:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -397,7 +343,6 @@ build:json-resume:pdf:stackoverflow:
 build:json-resume:pdf:material:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -407,7 +352,6 @@ build:json-resume:pdf:material:
 build:json-resume:pdf:moon:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -417,7 +361,6 @@ build:json-resume:pdf:moon:
 build:json-resume:pdf:eloquent:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_DIR="${OUTPUT_RESUME_DIR}/${GITLAB_USER_NAME// /}-$(cat ${VERSION_FILE})/${BUILD_TYPE}/${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -436,6 +379,11 @@ build:latex:
     - *build_script
   variables:
     BUILD_TYPE: latex
+
+package:
+  except:
+    - master
+    - latest
 
 # Generates a new tag from commits to master
 publish:tag:

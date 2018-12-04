@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run | grep [^\\]]build: | while read build; do npm run ${build}; done",
-    "build:json-resume": "mkdir -p \"${OUTPUT_RESUME_DIR}\" && npm i jsonresume-theme-${JSON_RESUME_THEME} && resume export \"${OUTPUT_RESUME_DIR}/${OUTPUT_RESUME_NAME}\" --format \"${JSON_RESUME_FORMAT}\" --theme \"${JSON_RESUME_THEME}\"",
-    "build:latex": "mkdir -p \"${OUTPUT_RESUME_DIR}\" && latexmk -pdf && mv *.pdf \"${OUTPUT_RESUME_DIR}\"",
+    "build:json-resume": "npm i jsonresume-theme-${JSON_RESUME_THEME} && resume export \"${JSON_RESUME_NAME}\" --format \"${JSON_RESUME_FORMAT}\" --theme \"${JSON_RESUME_THEME}\"",
+    "build:latex": "latexmk -pdf",
     "clean": "rm -rf node_modules",
     "test": "npm run | grep [^\\]]test: | while read test; do npm run ${test}; done",
     "test:schema": "resume test"
@@ -24,18 +24,5 @@
   "private": true,
   "devDependencies": {
     "resume-cli": "1.1.2"
-  },
-  "dependencies": {
-    "jsonresume-theme-elegant": "^1.12.1",
-    "jsonresume-theme-elite": "^1.1.2",
-    "jsonresume-theme-eloquent": "^4.1.0",
-    "jsonresume-theme-flat": "^0.3.7",
-    "jsonresume-theme-kendall": "^0.1.19",
-    "jsonresume-theme-kwan": "0.0.2",
-    "jsonresume-theme-material": "^1.1.2",
-    "jsonresume-theme-modern": "0.0.18",
-    "jsonresume-theme-moon": "^1.7.22",
-    "jsonresume-theme-spartan": "^0.2.1",
-    "jsonresume-theme-stackoverflow": "^1.4.0"
   }
 }
