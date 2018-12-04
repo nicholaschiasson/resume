@@ -71,7 +71,7 @@ test:schema:
     npm install
     npm run build:${BUILD_TYPE}
   variables: &build_variables
-    OUTPUT_RESUME_NAME: "${GITLAB_USER_NAME// /}"
+    OUTPUT_RESUME_NAME: "wompwomp${GITLAB_USER_NAME// /}"
   artifacts:
     paths:
       - "*.html"
