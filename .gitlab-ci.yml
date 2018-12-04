@@ -8,6 +8,7 @@ stages:
 
 variables:
   CLASSIFY_VERSION_FILE: CLASSIFY_VERSION
+  OUTPUT_RESUME_DIR: .out
 
 # Classify version template
 .classify:version:template: &classify_version_template
@@ -68,15 +69,13 @@ test:schema:
     echo "${OUTPUT_RESUME_NAME}"
     npm install
     npm run build:${BUILD_TYPE}
-  variables:
-    OUTPUT_RESUME_DIR: .out
   artifacts:
     paths:
       - .out/*
   cache:
     paths:
       - "${CLASSIFY_VERSION_FILE}"
-    policy: push
+    policy: pull
   except:
     - master
 
