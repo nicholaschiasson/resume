@@ -446,7 +446,7 @@ build:json-resume:html:elegant:
     policy: pull
   artifacts:
     paths:
-      - *
+      - "*"
   except:
     - master
     - latest
