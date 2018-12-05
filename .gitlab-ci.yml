@@ -66,8 +66,9 @@ test:schema:
   script: &build_script |
     npm install
     OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}
-    mv *.html "${CACHE_RESUME_NAME}.html" || echo
-    mv *.pdf "${CACHE_RESUME_NAME}.pdf" || echo
+    ls *.html *.pdf | while read f; do
+      mv “${f}” “${CACHE_RESUME_NAME}-${f}”
+    done
   artifacts:
     paths:
       - out:*
