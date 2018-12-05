@@ -438,7 +438,7 @@ build:json-resume:html:elegant:
     - |
       ls out:* | while read f; do
         echo "${f}"
-        OUT="${OUT//:/\/}"
+        OUT="${f//://}"
         echo "${OUT}"
         mkdir -p "$(dirname "${OUT}")"
         mv "${f}" "${OUT}"
