@@ -454,11 +454,21 @@ pages:
   variables:
     ARTIFACT: public
 
-deploy:package:
+deploy:package:branches:
   <<: *deploy_template
   script:
-    - export ARTIFACT="${GITLAB_USER_NAME// /}"
+    - export ARTIFACT=“${GITLAB_USER_NAME// /}-${CI_JOB_ID}”
     - *deploy_script
+  only:
+    - branches
+
+deploy:package:tags:
+  <<: *deploy_template
+  script:
+    - export ARTIFACT="${GITLAB_USER_NAME// /}-${CI_COMMIT_TAG}”
+    - *deploy_script
+  only:
+    - tags
 
 # Generates a new tag from commits to master
 publish:tag:
