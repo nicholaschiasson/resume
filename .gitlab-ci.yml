@@ -70,8 +70,7 @@ test:schema:
     mv *.pdf "${CACHE_RESUME_NAME}.pdf" || echo
   cache:
     paths:
-      - "*.html"
-      - "*.pdf"
+      - out:*
     policy: push
   except:
     - master
@@ -448,8 +447,7 @@ build:json-resume:html:elegant:
     - cp -r out "${ARTIFACT}"
   cache:
     paths:
-      - "*.html"
-      - "*.pdf"
+      - out:*
     policy: pull
   artifacts:
     paths:
