@@ -409,8 +409,7 @@ build:latex:
   variables:
     BUILD_TYPE: latex
 
-# Deploy to gitlab pages
-pages:
+.deploy:template: &deploy_template
   stage: deploy
   script:
     - ls -la
@@ -423,19 +422,28 @@ pages:
         mkdir "$(dirname "${OUT}")"
         mv "${f}" "${OUT}"
       done
-    - cp -r out "${GITLAB_USER_NAME// /}"
-    - cp -r out public
+    - cp -r out "${ARTIFACT}"
   cache:
     paths:
-      - out
+      - out:*
     policy: pull
   artifacts:
     paths:
-      - public
-      - "${GITLAB_USER_NAME// /}"
+      - "${ARTIFACT}"
   except:
     - master
     - latest
+
+# Deploy to gitlab pages
+pages:
+  <<: *deploy_template
+  variables:
+    ARTIFACT: public
+
+deploy:package:
+  <<: *deploy_template
+  variables:
+    ARTIFACT: "${GITLAB_USER_NAME// /}"
 
 # Generates a new tag from commits to master
 publish:tag:
