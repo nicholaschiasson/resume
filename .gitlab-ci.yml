@@ -64,6 +64,7 @@ test:schema:
   image: node:dubnium-alpine
   stage: build
   script: &build_script |
+    echo "${OUTPUT_RESUME_NAME}"
     npm install
     npm run build:${BUILD_TYPE}
   # cache:
