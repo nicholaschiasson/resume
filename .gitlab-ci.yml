@@ -441,7 +441,7 @@ build:json-resume:html:elegant:
         OUT="${f#out:}"
         OUT="${OUT//:/\/}"
         echo "${OUT}"
-        mkdir "$(dirname "${OUT}")"
+        mkdir -p "$(dirname "${OUT}")"
         mv "${f}" "${OUT}"
       done
     - cp -r out "${ARTIFACT}"
