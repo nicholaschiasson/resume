@@ -482,6 +482,7 @@ build:latex:
 pages:
   stage: deploy
   script:
+    - ls -la
     - cp -r out "${GITLAB_USER_NAME// /}"
     - cp -r out public
   cache:
