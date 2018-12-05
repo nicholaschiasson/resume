@@ -440,7 +440,7 @@ build:latex:
     mv out ".${ARTIFACT}"
     rm -rf *
     mv ".${ARTIFACT}" "${ARTIFACT}"
-    rm -rf .*
+    rm -rf .* || echo
   cache:
     paths:
       - out:*
