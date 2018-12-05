@@ -432,20 +432,21 @@ build:json-resume:html:elegant:
 .deploy:template: &deploy_template
   stage: deploy
   script: &deploy_script |
-    echo "${ARTIFACT}"
     ls out:* | while read f; do
       OUT="${f//://}"
       mkdir -p "$(dirname "${OUT}")"
       mv "${f}" "${OUT}"
     done
-    mv out "${ARTIFACT}"
+    mv out ".${ARTIFACT}"
+    rm -rf *
+    mv ".${ARTIFACT}" "${ARTIFACT}"
   cache:
     paths:
       - out:*
     policy: pull
   artifacts:
     paths:
-      - "${ARTIFACT}"
+      - *
   except:
     - master
     - latest
