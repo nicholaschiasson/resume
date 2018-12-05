@@ -67,9 +67,10 @@ test:schema:
     npm install
     npm run build:${BUILD_TYPE}
     mv *.pdf *.html "${OUTPUT_RESUME_DIR}/" 2>/dev/null || echo
-  artifacts:
+  cache:
     paths:
       - "${GITLAB_USER_NAME// /}*"
+    policy: push
   except:
     - master
     - latest
@@ -473,6 +474,23 @@ build:latex:
     - *build_script
   variables:
     BUILD_TYPE: latex
+
+# Deploy to gitlab pages
+pages:
+  stage: deploy
+  script:
+    - cp -r "${GITLAB_USER_NAME// /}*" public
+  cache:
+    paths:
+      - "${GITLAB_USER_NAME// /}*"
+    policy: pull
+  artifacts:
+    paths:
+      - public
+      - "${GITLAB_USER_NAME// /}*"
+  except:
+    - master
+    - latest
 
 # Generates a new tag from commits to master
 publish:tag:
