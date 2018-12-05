@@ -66,10 +66,10 @@ test:schema:
   script: &build_script |
     npm install
     npm run build:${BUILD_TYPE}
-  cache:
-    paths:
-      - out\:*
-    policy: push
+  # cache:
+  #   paths:
+  #     - out\:*
+  #   policy: push
   except:
     - master
     - latest
