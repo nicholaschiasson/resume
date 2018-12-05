@@ -68,10 +68,10 @@ test:schema:
     OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}
     mv *.html "${CACHE_RESUME_NAME}.html" || echo
     mv *.pdf "${CACHE_RESUME_NAME}.pdf" || echo
-  cache:
+  artifacts:
     paths:
       - out:*
-    policy: push
+    expire_in: 1 hrs
   except:
     - master
     - latest
@@ -441,10 +441,6 @@ build:latex:
     rm -rf *
     mv ".${ARTIFACT}" "${ARTIFACT}"
     rm -rf .* || echo
-  cache:
-    paths:
-      - out:*
-    policy: pull
   artifacts:
     paths:
       - "*"
