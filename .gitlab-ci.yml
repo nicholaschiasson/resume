@@ -64,13 +64,14 @@ test:schema:
   image: node:dubnium-alpine
   stage: build
   script: &build_script |
-    echo "${OUTPUT_RESUME_NAME}"
     npm install
-    npm run build:${BUILD_TYPE}
-  # cache:
-  #   paths:
-  #     - out_*
-  #   policy: push
+    OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}
+    mv "*.html" "${CACHE_RESUME_NAME}" || echo
+    mv "*.pdf" "${CACHE_RESUME_NAME}" || echo
+  cache:
+    paths:
+      - out:*
+    policy: push
   except:
     - master
     - latest
@@ -78,7 +79,7 @@ test:schema:
 build:json-resume:html:elegant:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_NAME="${GITLAB_USER_NAME// /}_${BUILD_TYPE}_${JSON_RESUME_THEME}"
+    - export CACHE_RESUME_NAME="out:${GITLAB_USER_NAME// /}:${BUILD_TYPE}:${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
