@@ -404,8 +404,8 @@ build:latex:
     - apt-get install -y nodejs
     - export OUTPUT_RESUME_NAME="out:${GITLAB_USER_NAME// /}:${BUILD_TYPE}"
     - *build_script
-    - mv *.html "${OUTPUT_RESUME_NAME}.html"
-    - mv *.pdf "${OUTPUT_RESUME_NAME}.pdf"
+    - mv *.html "${OUTPUT_RESUME_NAME}.html" || echo
+    - mv *.pdf "${OUTPUT_RESUME_NAME}.pdf" || echo
   variables:
     BUILD_TYPE: latex
 
