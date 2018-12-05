@@ -4,8 +4,9 @@
   "description": "Nicholas Omer Chiasson's Resume",
   "main": "index.js",
   "scripts": {
+    "help": "resume help",
     "build": "npm run | grep [^\\]]build: | while read build; do npm run ${build}; done",
-    "build:json-resume": "npm i jsonresume-theme-${JSON_RESUME_THEME} && ls -la && resume export \"${OUTPUT_RESUME_NAME}\" --format \"${JSON_RESUME_FORMAT}\" --theme \"${JSON_RESUME_THEME}\"",
+    "build:json-resume": "npm i jsonresume-theme-${JSON_RESUME_THEME} && resume export \"${OUTPUT_RESUME_NAME}\" --format \"${JSON_RESUME_FORMAT}\" --theme \"${JSON_RESUME_THEME}\"",
     "build:latex": "latexmk -pdf",
     "clean": "rm -rf node_modules",
     "test": "npm run | grep [^\\]]test: | while read test; do npm run ${test}; done",
