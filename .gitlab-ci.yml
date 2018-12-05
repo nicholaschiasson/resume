@@ -78,7 +78,7 @@ test:schema:
 build:json-resume:html:elegant:
   <<: *build_template
   script:
-    - export OUTPUT_RESUME_NAME="out_${GITLAB_USER_NAME// /}_${BUILD_TYPE}_${JSON_RESUME_THEME}"
+    - export OUTPUT_RESUME_NAME="${GITLAB_USER_NAME// /}_${BUILD_TYPE}_${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
