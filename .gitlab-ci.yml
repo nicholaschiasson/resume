@@ -439,7 +439,7 @@ build:json-resume:html:elegant:
         mkdir -p "$(dirname "${OUT}")"
         mv "${f}" "${OUT}"
       done
-    - cp -r out "${ARTIFACT}"
+    - mv out "${ARTIFACT}"
   cache:
     paths:
       - out:*
