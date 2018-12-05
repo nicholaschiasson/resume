@@ -64,8 +64,8 @@ test:schema:
   image: node:dubnium-alpine
   stage: build
   script: &build_script |
-    ls -la
     npm install
+    ls -la
     npm run build:${BUILD_TYPE}
   cache:
     paths:
