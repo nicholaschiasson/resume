@@ -66,11 +66,12 @@ test:schema:
   script: &build_script |
     npm install
     OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}
-    mv "*.html" "${CACHE_RESUME_NAME}" || echo
-    mv "*.pdf" "${CACHE_RESUME_NAME}" || echo
+    mv "*.html" "${CACHE_RESUME_NAME}.html" || echo
+    mv "*.pdf" "${CACHE_RESUME_NAME}.pdf" || echo
   cache:
     paths:
-      - out:*
+      - "*.html"
+      - "*.pdf"
     policy: push
   except:
     - master
@@ -79,7 +80,7 @@ test:schema:
 build:json-resume:html:elegant:
   <<: *build_template
   script:
-    - export CACHE_RESUME_NAME="out:${GITLAB_USER_NAME// /}:${BUILD_TYPE}:${JSON_RESUME_THEME}"
+    - export CACHE_RESUME_NAME="out_${GITLAB_USER_NAME// /}_${BUILD_TYPE}_${JSON_RESUME_THEME}"
     - *build_script
   variables:
     BUILD_TYPE: json-resume
@@ -447,7 +448,8 @@ build:json-resume:html:elegant:
     - cp -r out "${ARTIFACT}"
   cache:
     paths:
-      - out:*
+      - "*.html"
+      - "*.pdf"
     policy: pull
   artifacts:
     paths:
