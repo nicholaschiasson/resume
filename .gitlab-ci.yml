@@ -440,6 +440,7 @@ build:json-resume:html:elegant:
     mv out ".${ARTIFACT}"
     rm -rf *
     mv ".${ARTIFACT}" "${ARTIFACT}"
+    rm -rf .*
   cache:
     paths:
       - out:*
