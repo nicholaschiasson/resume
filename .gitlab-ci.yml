@@ -426,20 +426,16 @@ build:json-resume:html:elegant:
 #     - apt-get install -y nodejs
 #     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${GITLAB_USER_NAME// /}"
 #     - *build_script
-#     - mv *.html "${OUTPUT_RESUME_NAME}.html" || echo
-#     - mv *.pdf "${OUTPUT_RESUME_NAME}.pdf" || echo
 #   variables:
 #     BUILD_TYPE: latex
 
 .deploy:template: &deploy_template
   stage: deploy
   script:
-    - ls -la
+    - echo "${ARTIFACT}"
     - |
       ls out:* | while read f; do
-        echo "${f}"
         OUT="${f//://}"
-        echo "${OUT}"
         mkdir -p "$(dirname "${OUT}")"
         mv "${f}" "${OUT}"
       done
