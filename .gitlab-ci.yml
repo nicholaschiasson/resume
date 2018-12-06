@@ -458,7 +458,7 @@ pages:
 deploy:package:branches:
   <<: *deploy_template
   script:
-    - export ARTIFACT=“${GITLAB_USER_NAME// /}-${CI_JOB_ID}”
+    - export ARTIFACT=${GITLAB_USER_NAME// /}-${CI_JOB_ID}
     - *deploy_script
   only:
     - branches
@@ -466,7 +466,7 @@ deploy:package:branches:
 deploy:package:tags:
   <<: *deploy_template
   script:
-    - export ARTIFACT="${GITLAB_USER_NAME// /}-${CI_COMMIT_TAG}”
+    - export ARTIFACT=${GITLAB_USER_NAME// /}-${CI_COMMIT_TAG}
     - *deploy_script
   only:
     - tags
