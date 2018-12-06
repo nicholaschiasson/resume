@@ -66,7 +66,7 @@ test:schema:
   script: &build_script |
     npm install
     OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}
-    find * -maxdepth 0 -type f
+    find * -maxdepth 0 -type f -name *.pdf
     find * -maxdepth 0 -type f -name *.html -or -name *.pdf | while read f; do
       mv -fv ${f} ${CACHE_RESUME_NAME}-${f}
     done
@@ -420,7 +420,7 @@ build:json-resume:pdf:crisp:
 
 build:latex:
   <<: *build_template
-  image: blang/latex
+  image: blang/latex:ctanbasic
   script:
     - apt-get update
     - apt-get install -y curl
