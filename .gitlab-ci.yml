@@ -66,9 +66,9 @@ test:schema:
   script: &build_script |
     npm install
     OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}
-    find . -maxdepth 1 -mindepth 1 -type f -name *.html -or -name *.pdf | while read f; do
-      mv -fv “${f}” “${CACHE_RESUME_NAME}-${f}”
-    done
+    ls *.html *.pdf | while read f; do
+      mv -fv ${f} “${CACHE_RESUME_NAME}-${f}”
+    done || echo
   artifacts:
     paths:
       - out:*
