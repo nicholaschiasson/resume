@@ -434,13 +434,13 @@ build:latex:
   stage: deploy
   script: &deploy_script |
     ls out:* | while read f; do
-      OUT="${f//://}"
-      mkdir -p "$(dirname "${OUT}")"
-      mv "${f}" "${OUT}"
+      OUT=${f//://}
+      mkdir -p $(dirname ${OUT})
+      mv ${f} ${OUT}
     done
-    mv out ".${ARTIFACT}"
+    mv out .${ARTIFACT}
     rm -rf *
-    mv ".${ARTIFACT}" "${ARTIFACT}"
+    mv .${ARTIFACT} ${ARTIFACT}
     rm -rf .* || echo
   artifacts:
     paths:
