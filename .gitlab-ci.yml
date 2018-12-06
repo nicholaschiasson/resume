@@ -68,7 +68,7 @@ test:schema:
     OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}
     ls *.html *.pdf | while read f; do
       mv -fv ${f} ${CACHE_RESUME_NAME}-${f}
-    done || echo
+    done
   artifacts:
     paths:
       - out:*
