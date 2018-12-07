@@ -455,7 +455,7 @@ pages:
 deploy:package:branches:
   <<: *deploy_template
   script:
-    - export ARTIFACT=${GITLAB_USER_NAME// /}-${CI_JOB_ID}
+    - export ARTIFACT=${GITLAB_USER_NAME// /}-${CI_COMMIT_SHA}
     - *deploy_script
   only:
     - branches
