@@ -421,10 +421,7 @@ build:latex:
   <<: *build_template
   image: registry.gitlab.com/nicholaschiasson/resume/latex
   script:
-    - apt-get update
-    - apt-get install -y curl
-    - curl -sL https://deb.nodesource.com/setup_10.x | bash -
-    - apt-get install -y nodejs
+    - apk add --no-cache nodejs
     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${GITLAB_USER_NAME// /}"
     - *build_script
   variables:
