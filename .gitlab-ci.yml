@@ -419,7 +419,7 @@ build:json-resume:pdf:crisp:
 
 build:latex:
   <<: *build_template
-  image: registry.gitlab.com/leschiassons/images/latex
+  image: registry.gitlab.com/nicholaschiasson/resume/latex
   script:
     - apt-get update
     - apt-get install -y curl
