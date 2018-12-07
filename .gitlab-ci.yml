@@ -421,7 +421,7 @@ build:latex:
   <<: *build_template
   image: registry.gitlab.com/nicholaschiasson/resume/latex
   script:
-    - apk add --no-cache nodejs
+    - apk add --no-cache nodejs npm
     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${GITLAB_USER_NAME// /}"
     - *build_script
   variables:
