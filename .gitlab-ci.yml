@@ -260,15 +260,15 @@ build:json-resume:html:elegant:
 #     JSON_RESUME_FORMAT: html
 #     JSON_RESUME_THEME: crisp
 
-# build:json-resume:pdf:elegant:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: elegant
+build:json-resume:pdf:elegant:
+  <<: *build_template
+  script:
+    - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
+    - *build_script
+  variables:
+    BUILD_TYPE: json-resume
+    JSON_RESUME_FORMAT: pdf
+    JSON_RESUME_THEME: elegant
 
 # build:json-resume:pdf:paper:
 #   <<: *build_template
