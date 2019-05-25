@@ -81,7 +81,6 @@ test:schema:
     mkdir -p /home/pptruser/Downloads /app
     chown -R pptruser:pptruser /home/pptruser
     chown -R pptruser:pptruser /app
-    su - pptruser
     npm install
     OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}
     find * -maxdepth 0 -type f -name '*.html' -or -name '*.pdf' | while read f; do
