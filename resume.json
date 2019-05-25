@@ -37,6 +37,13 @@
     }]
   },
   "work": [{
+    "company": "Ubisoft Montreal",
+    "position": "Online Programmer",
+    "website": "https://montreal.ubisoft.com",
+    "startDate": "2017-09-05",
+    "summary": "",
+    "highlights": []
+  }, {
     "company": "Espial Group Inc.",
     "position": "Embedded Device Software Developer -- CO-OP",
     "website": "https://espial.com",
