@@ -75,6 +75,12 @@ test:schema:
       harfbuzz@edge \
       ttf-freefont@edge
     export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+    yarn add puppeteer@1.11.0
+    addgroup -S pptruser
+    adduser -S -g pptruser pptruser
+    mkdir -p /home/pptruser/Downloads /app
+    chown -R pptruser:pptruser /home/pptruser
+    chown -R pptruser:pptruser /app
     npm install
     OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}
     find * -maxdepth 0 -type f -name '*.html' -or -name '*.pdf' | while read f; do
