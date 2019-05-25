@@ -75,7 +75,7 @@ test:schema:
       harfbuzz@edge \
       ttf-freefont@edge
     export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-    yarn add puppeteer@1.11.0
+    npm i puppeteer@1.11.0
     addgroup -S pptruser
     adduser -S -g pptruser pptruser
     mkdir -p /home/pptruser/Downloads /app
