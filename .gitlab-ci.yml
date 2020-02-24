@@ -64,6 +64,9 @@ test:schema:
   image: node:dubnium-alpine
   stage: build
   script: &build_script |
+    BUILD_TYPE=$(echo ${CI_JOB_NAME} | cut -d':' -f2)
+    RESUME_FORMAT=$(echo ${CI_JOB_NAME} | cut -d':' -f3)
+    RESUME_THEME=$(echo ${CI_JOB_NAME} | cut -d':' -f4)
     apk update
     apk upgrade
     echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
@@ -82,9 +85,9 @@ test:schema:
     chown -R pptruser:pptruser /home/pptruser
     chown -R pptruser:pptruser /app
     npm install
-    OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}
+    OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}:${RESUME_FORMAT}
     find * -maxdepth 0 -type f -name '*.html' -or -name '*.pdf' | while read f; do
-      mv -fv ${f} ${CACHE_RESUME_NAME}-${f}
+      mv -fv ${f} "out:${BUILD_TYPE}:${RESUME_THEME}:${GITLAB_USER_NAME// /}-${f}"
     done
   artifacts:
     paths:
@@ -94,357 +97,64 @@ test:schema:
     - master
     - latest
 
-# favourite
-build:json-resume:html:elegant:
-  <<: *build_template
-  script:
-    - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-    - *build_script
-  variables:
-    BUILD_TYPE: json-resume
-    JSON_RESUME_FORMAT: html
-    JSON_RESUME_THEME: elegant
-
-# build:json-resume:html:paper:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: paper
-
 # # favourite
-# build:json-resume:html:kendall:
+# build:json-resume:html:elegant:
 #   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: kendall
-
-# build:json-resume:html:flat:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: flat
-
-# build:json-resume:html:modern:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: modern
-
-# build:json-resume:html:classy:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: classy
-
-# build:json-resume:html:class:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: class
-
-# build:json-resume:html:short:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: short
-
-# build:json-resume:html:slick:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: slick
-
-# build:json-resume:html:kwan:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: kwan
-
-# build:json-resume:html:onepage:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: onepage
-
-# build:json-resume:html:spartan:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: spartan
-
-# build:json-resume:html:stackoverflow:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: stackoverflow
-
-# build:json-resume:html:material:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: material
-
-# build:json-resume:html:moon:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: moon
 
 # build:json-resume:html:eloquent:
 #   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: eloquent
 
-# build:json-resume:html:crisp:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: html
-#     JSON_RESUME_THEME: crisp
-
-build:json-resume:pdf:elegant:
+# favourite
+build:json-resume:html:kendall:
   <<: *build_template
-  script:
-    - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-    - *build_script
-  variables:
-    BUILD_TYPE: json-resume
-    JSON_RESUME_FORMAT: pdf
-    JSON_RESUME_THEME: elegant
 
-# build:json-resume:pdf:paper:
+# build:json-resume:html:kwan:
 #   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: paper
 
-# build:json-resume:pdf:kendall:
+# build:json-resume:html:onepage:
 #   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: kendall
 
-# build:json-resume:pdf:flat:
+# build:json-resume:html:paper:
 #   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: flat
 
-# build:json-resume:pdf:modern:
+# build:json-resume:html:short:
 #   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: modern
 
-# build:json-resume:pdf:classy:
+# build:json-resume:html:spartan:
 #   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: classy
 
-# build:json-resume:pdf:class:
+# # favourite
+# build:json-resume:pdf:elegant:
 #   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: class
-
-# build:json-resume:pdf:short:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: short
-
-# build:json-resume:pdf:slick:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: slick
-
-# build:json-resume:pdf:kwan:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: kwan
-
-# build:json-resume:pdf:onepage:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: onepage
-
-# build:json-resume:pdf:spartan:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: spartan
-
-# build:json-resume:pdf:stackoverflow:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: stackoverflow
-
-# build:json-resume:pdf:material:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: material
-
-# build:json-resume:pdf:moon:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: moon
 
 # build:json-resume:pdf:eloquent:
 #   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: eloquent
 
-# build:json-resume:pdf:crisp:
-#   <<: *build_template
-#   script:
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${JSON_RESUME_THEME}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: json-resume
-#     JSON_RESUME_FORMAT: pdf
-#     JSON_RESUME_THEME: crisp
+# favourite
+build:json-resume:pdf:kendall:
+  <<: *build_template
 
-# build:latex:
+# build:json-resume:pdf:kwan:
 #   <<: *build_template
-#   image: registry.gitlab.com/nicholaschiasson/resume/latex
-#   script:
-#     - apk add --no-cache nodejs npm
-#     - export CACHE_RESUME_NAME="out:${BUILD_TYPE}:${GITLAB_USER_NAME// /}"
-#     - *build_script
-#   variables:
-#     BUILD_TYPE: latex
+
+# build:json-resume:pdf:onepage:
+#   <<: *build_template
+
+# build:json-resume:pdf:paper:
+#   <<: *build_template
+
+# build:json-resume:pdf:short:
+#   <<: *build_template
+
+# build:json-resume:pdf:spartan:
+#   <<: *build_template
+
+build:latex:pdf:default:
+  <<: *build_template
+  image: registry.gitlab.com/nicholaschiasson/resume/latex
+  script:
+    - apk add --no-cache nodejs npm
+    - *build_script
 
 .deploy:template: &deploy_template
   stage: deploy

@@ -6,8 +6,9 @@
   "scripts": {
     "help": "resume help",
     "build": "npm run | grep [^\\]]build: | while read build; do npm run ${build}; done",
-    "build:json-resume": "npm i jsonresume-theme-${JSON_RESUME_THEME} && resume export \"${OUTPUT_RESUME_NAME}\" --format \"${JSON_RESUME_FORMAT}\" --theme \"${JSON_RESUME_THEME}\"",
-    "build:latex": "latexmk -pdf",
+    "build:json-resume:html": "npm i jsonresume-theme-${RESUME_THEME} && resume export \"${OUTPUT_RESUME_NAME}\" --format \"html\" --theme \"${RESUME_THEME}\"",
+    "build:json-resume:pdf": "npm i jsonresume-theme-${RESUME_THEME} && resume export \"${OUTPUT_RESUME_NAME}\" --format \"pdf\" --theme \"${RESUME_THEME}\"",
+    "build:latex:pdf": "latexmk -pdf",
     "clean": "rm -rf node_modules",
     "test": "npm run | grep [^\\]]test: | while read test; do npm run ${test}; done",
     "test:schema": "resume test"
@@ -24,6 +25,7 @@
   "homepage": "https://gitlab.com/nicholaschiasson/resume#readme",
   "private": true,
   "devDependencies": {
-    "resume-cli": "1.1.2"
+    "html-pdf": "^2.2.0",
+    "resume-cli": "^1.2.7"
   }
 }
