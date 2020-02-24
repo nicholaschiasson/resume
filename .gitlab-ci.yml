@@ -67,23 +67,23 @@ test:schema:
     BUILD_TYPE=$(echo ${CI_JOB_NAME} | cut -d':' -f2)
     RESUME_FORMAT=$(echo ${CI_JOB_NAME} | cut -d':' -f3)
     RESUME_THEME=$(echo ${CI_JOB_NAME} | cut -d':' -f4)
-    apk update
-    apk upgrade
-    echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
-    echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
-    apk add --no-cache \
-      chromium@edge=72.0.3626.121-r0 \
-      nss@edge \
-      freetype@edge \
-      harfbuzz@edge \
-      ttf-freefont@edge
-    export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-    npm i puppeteer@1.11.0
-    addgroup -S pptruser
-    adduser -S -g pptruser pptruser
-    mkdir -p /home/pptruser/Downloads /app
-    chown -R pptruser:pptruser /home/pptruser
-    chown -R pptruser:pptruser /app
+    # apk update
+    # apk upgrade
+    # echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+    # echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
+    # apk add --no-cache \
+    #   chromium@edge=72.0.3626.121-r0 \
+    #   nss@edge \
+    #   freetype@edge \
+    #   harfbuzz@edge \
+    #   ttf-freefont@edge
+    # export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+    # npm i puppeteer@1.11.0
+    # addgroup -S pptruser
+    # adduser -S -g pptruser pptruser
+    # mkdir -p /home/pptruser/Downloads /app
+    # chown -R pptruser:pptruser /home/pptruser
+    # chown -R pptruser:pptruser /app
     npm install
     OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}:${RESUME_FORMAT}
     find * -maxdepth 0 -type f -name '*.html' -or -name '*.pdf' | while read f; do
