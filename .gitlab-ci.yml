@@ -88,7 +88,7 @@ test:schema:
     # chown -R pptruser:pptruser /app
     npm install
     OUTPUT_RESUME_NAME=resume npm run build:${BUILD_TYPE}:${RESUME_FORMAT}
-    mkdir -p deps
+    mkdir -p deps out
     find * -maxdepth 0 -type f -name '*.html' -or -name '*.pdf' | while read f; do
       cp -fv ${f} "deps/${ARTIFACT_PREFIX}-${f}"
       mv -fv ${f} "out/${ARTIFACT_PREFIX}:${GITLAB_USER_NAME// /}-${f}"
