@@ -123,6 +123,7 @@ build:json-resume:html:spartan:
 build:json-resume:pdf:elegant:
   <<: *build_template
   image: insightsoftware/wkhtmltopdf:1.0.10
+  allow_failure: true
 
 build:json-resume:pdf:eloquent:
   <<: *build_template

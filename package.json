@@ -25,7 +25,6 @@
   "homepage": "https://gitlab.com/nicholaschiasson/resume#readme",
   "private": true,
   "devDependencies": {
-    "html-pdf": "^2.2.0",
     "resume-cli": "^1.2.7"
   }
 }
