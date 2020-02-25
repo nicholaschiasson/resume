@@ -2,11 +2,11 @@
   "basics": {
     "name": "Nicholas Omer Chiasson",
     "label": "Software Engineer",
-    "picture": "https://www.libravatar.org/user/069ed8daa69512877bce00a50ffaf7e7c699b5f35e2fee629da9e10fa742b14f.jpg",
+    "picture": "https://www.libravatar.org/avatar/0a443918ed8bef2258666cdde5a50c5cc30d8547d010a1c7b91b936d904a404b?s=1024",
     "email": "nicholasomerchiasson@gmail.com",
     "phone": "(613) 875-3155",
     "website": "https://nicholaschiasson.gitlab.io",
-		"summary": "Experienced Software Engineer with interests in and skills suitable for a wide range of tech faculties including game and application development, full stack web development, cloud computing and micro services, embedded software development, and dev ops.",
+    "summary": "Experienced Software Engineer with interests in and skills suitable for a wide range of tech faculties including game and application development, full stack web development, cloud computing and micro services, embedded software development, and dev ops.",
     "location": {
       "address": "3025 Sherbrooke Street West",
       "postalCode": "H3Z 1A1",
@@ -37,8 +37,15 @@
     }]
   },
   "work": [{
+    "company": "Ubisoft Montreal",
+    "position": "Online Programmer",
+    "website": "https://montreal.ubisoft.com",
+    "startDate": "2017-09-05",
+    "summary": "",
+    "highlights": []
+  }, {
     "company": "Espial Group Inc.",
-    "position": "Embedded Device Software Developer -- CO-OP",
+    "position": "Embedded Device Software Developer — CO-OP",
     "website": "https://espial.com",
     "startDate": "2016-01-04",
     "endDate": "2016-08-26",
@@ -51,7 +58,7 @@
     ]
   }, {
     "company": "Enhansoft Inc.",
-    "position": "Junior Programmer -- CO-OP",
+    "position": "Junior Programmer — CO-OP",
     "website": "https://www.enhansoft.com",
     "startDate": "2015-05-12",
     "endDate": "2015-08-28",
@@ -63,7 +70,7 @@
     ]
   }, {
     "company": "LiveQoS Inc.",
-    "position": "Software Developer Intern -- CO-OP",
+    "position": "Software Developer Intern — CO-OP",
     "website": "https://liveqos.com",
     "startDate": "2014-09-02",
     "endDate": "2014-12-19",
@@ -164,9 +171,9 @@
     "fluency": "Native speaker"
   }, {
     "language": "French",
-    "fluency": "Limited working proficiency"
+    "fluency": "Intermediate"
   }, {
     "language": "Japanese",
-    "fluency": "Elementary proficiency"
+    "fluency": "Beginner"
   }]
 }
