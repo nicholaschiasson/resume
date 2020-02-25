@@ -87,79 +87,79 @@ test:schema:
     - master
     - latest
 
-# # favourite
-# build:json-resume:html:elegant:
-#   <<: *build_template
-#   stage: build:deps
+# favourite
+build:json-resume:html:elegant:
+  <<: *build_template
+  stage: build:deps
 
-# build:json-resume:html:eloquent:
-#   <<: *build_template
-#   stage: build:deps
+build:json-resume:html:eloquent:
+  <<: *build_template
+  stage: build:deps
 
 # favourite
 build:json-resume:html:kendall:
   <<: *build_template
   stage: build:deps
 
-# build:json-resume:html:kwan:
-#   <<: *build_template
-#   stage: build:deps
+build:json-resume:html:kwan:
+  <<: *build_template
+  stage: build:deps
 
-# build:json-resume:html:onepage:
-#   <<: *build_template
-#   stage: build:deps
+build:json-resume:html:onepage:
+  <<: *build_template
+  stage: build:deps
 
-# build:json-resume:html:paper:
-#   <<: *build_template
-#   stage: build:deps
+build:json-resume:html:paper:
+  <<: *build_template
+  stage: build:deps
 
-# build:json-resume:html:short:
-#   <<: *build_template
-#   stage: build:deps
+build:json-resume:html:short:
+  <<: *build_template
+  stage: build:deps
 
-# build:json-resume:html:spartan:
-#   <<: *build_template
-#   stage: build:deps
+build:json-resume:html:spartan:
+  <<: *build_template
+  stage: build:deps
 
-# # favourite
-# build:json-resume:pdf:elegant:
-#   <<: *build_template
+# favourite
+build:json-resume:pdf:elegant:
+  <<: *build_template
 
-# build:json-resume:pdf:eloquent:
-#   <<: *build_template
+build:json-resume:pdf:eloquent:
+  <<: *build_template
 
 # favourite
 build:json-resume:pdf:kendall:
   <<: *build_template
 
-# build:json-resume:pdf:kwan:
-#   <<: *build_template
+build:json-resume:pdf:kwan:
+  <<: *build_template
 
-# build:json-resume:pdf:onepage:
-#   <<: *build_template
+build:json-resume:pdf:onepage:
+  <<: *build_template
 
-# build:json-resume:pdf:paper:
-#   <<: *build_template
+build:json-resume:pdf:paper:
+  <<: *build_template
 
-# build:json-resume:pdf:short:
-#   <<: *build_template
+build:json-resume:pdf:short:
+  <<: *build_template
 
-# build:json-resume:pdf:spartan:
-#   <<: *build_template
+build:json-resume:pdf:spartan:
+  <<: *build_template
 
-# build:latex:pdf:default:
-#   <<: *build_template
-#   image: registry.gitlab.com/nicholaschiasson/resume/latex
-#   script:
-#     - apk add --no-cache nodejs npm
-#     - *build_script
+build:latex:pdf:default:
+  <<: *build_template
+  image: registry.gitlab.com/nicholaschiasson/resume/latex
+  script:
+    - apk add --no-cache nodejs npm
+    - *build_script
 
 .deploy:template: &deploy_template
   stage: deploy
   script: &deploy_script |
     set -x
     ls out/* | while read f; do
-      OUT=out/${f//://}
+      OUT=${f//://}
       mkdir -p $(dirname ${OUT})
       mv ${f} ${OUT}
     done
