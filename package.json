@@ -7,7 +7,7 @@
     "help": "resume help",
     "build": "npm run | grep [^\\]]build: | while read build; do npm run ${build}; done",
     "build:json-resume:html": "npm i jsonresume-theme-${RESUME_THEME} && resume export \"${OUTPUT_RESUME_NAME}\" --format \"${RESUME_FORMAT}\" --theme \"${RESUME_THEME}\"",
-    "build:json-resume:pdf": "html-pdf \"deps/${BUILD_TYPE}:${RESUME_THEME}:${OUTPUT_RESUME_NAME}.html\" \"${OUTPUT_RESUME_NAME}.pdf\"",
+    "build:json-resume:pdf": "wkhtmltopdf \"deps/${BUILD_TYPE}:${RESUME_THEME}:${OUTPUT_RESUME_NAME}.html\" \"${OUTPUT_RESUME_NAME}.pdf\"",
     "build:latex:pdf": "latexmk -pdf",
     "clean": "rm -rf node_modules",
     "test": "npm run | grep [^\\]]test: | while read test; do npm run ${test}; done",
