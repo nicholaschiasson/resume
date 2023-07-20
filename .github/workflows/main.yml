@@ -1,0 +1,88 @@
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    if: github.event_name == 'push' || (github.base_ref == 'main' && github.event.pull_request.merged == true)
+    runs-on: ubuntu-latest
+    needs: [tag]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.2
+      - name: Install Nix
+        uses: cachix/install-nix-action@v22
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build
+        uses: workflow/nix-shell-action@v3
+        with:
+          flakes: .
+          shell: just build
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          path: '*.pdf'
+
+  tag:
+    if: github.event_name == 'push' || (github.base_ref == 'main' && github.event.pull_request.merged == true)
+    runs-on: ubuntu-latest
+    needs: [build]
+    outputs:
+      version: ${{ steps.stamp.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.2
+      - name: Check semver bump
+        id: check-semver
+        run: |
+          if [[ "${{ github.event.head_commit.message }}" =~ ^Merge\ pull\ request\ #[0-9]+\ from\ [^/]+/patch/.+$ ]]
+          then
+            echo "semver=patch" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.event.head_commit.message }}" =~ ^Merge\ pull\ request\ #[0-9]+\ from\ [^/]+/major/.+$ ]]
+          then
+            echo "semver=major" >> $GITHUB_OUTPUT
+          else
+            echo "semver=minor" >> $GITHUB_OUTPUT
+          fi
+      - name: Bump major version and push tag
+        id: bump-major
+        if: ${{ steps.check-semver.outputs.semver == 'major' }}
+        uses: anothrNick/github-tag-action@1.65.0
+        env:
+          DEFAULT_BUMP: major
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Bump minor version and push tag
+        id: bump-minor
+        if: ${{ steps.check-semver.outputs.semver == 'minor' }}
+        uses: anothrNick/github-tag-action@1.65.0
+        env:
+          DEFAULT_BUMP: minor
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Bump patch version and push tag
+        id: bump-patch
+        if: ${{ steps.check-semver.outputs.semver == 'patch' }}
+        uses: anothrNick/github-tag-action@1.65.0
+        env:
+          DEFAULT_BUMP: patch
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release:
+    if: github.event_name == 'push' || (github.base_ref == 'main' && github.event.pull_request.merged == true)
+    runs-on: ubuntu-latest
+    needs: [tag, build]
+    steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v3.0.2
+      - name: Release
+        uses: softprops/action-gh-release@v0.1.15
+        with:
+          files: 'artifact/*.pdf'
+          tag_name: ${{ needs.tag.outputs.version }}

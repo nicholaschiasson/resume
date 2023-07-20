@@ -11,7 +11,7 @@
     "build:latex:pdf": "latexmk -pdf",
     "clean": "rm -rf node_modules",
     "test": "npm run | grep [^\\]]test: | while read test; do npm run ${test}; done",
-    "test:schema": "resume test"
+    "test:schema": "resume validate"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,6 @@
   "homepage": "https://gitlab.com/nicholaschiasson/resume#readme",
   "private": true,
   "devDependencies": {
-    "resume-cli": "^1.2.7"
+    "resume-cli": "^3.0.0"
   }
 }

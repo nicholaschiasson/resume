@@ -222,3 +222,6 @@ TSWLatexianTemp*
 ## JSON Resume output
 node_modules/
 *.html
+
+# Github Pages
+!pages/
