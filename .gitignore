@@ -224,4 +224,4 @@ node_modules/
 *.html
 
 # Github Pages
-!pages/
+!pages/*
