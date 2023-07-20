@@ -72,6 +72,19 @@ jobs:
         env:
           DEFAULT_BUMP: patch
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Stamp version
+        id: stamp
+        run: |
+          if [[ "${{ steps.check-semver.outputs.semver }}" == patch ]]
+          then
+            VERSION=${{ steps.bump-patch.outputs.new_tag }}
+          elif [[ "${{ steps.check-semver.outputs.semver }}" == major ]]
+          then
+            VERSION=${{ steps.bump-major.outputs.new_tag }}
+          else
+            VERSION=${{ steps.bump-minor.outputs.new_tag }}
+          fi
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
 
   release:
     if: github.event_name == 'push' || (github.base_ref == 'main' && github.event.pull_request.merged == true)
