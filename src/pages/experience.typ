@@ -1,6 +1,7 @@
 #import "/template.typ": experience;
 
 #experience(
+  compact: true,
   organization: "Ubisoft Montreal",
   role: "Online Programmer",
   location: "Montreal, Canada",
@@ -31,8 +32,10 @@
 )
 
 #experience(
+  compact: true,
   organization: "Espial Group Inc.",
-  role: "Embedded Device Software Developer " + sym.dash.em + " CO-OP",
+  role: "Embedded Device Software Developer",
+  coop: true,
   location: "Ottawa, Canada",
   start: "January 2016",
   end: "August 2016",
@@ -55,8 +58,10 @@
 )
 
 #experience(
+  compact: true,
   organization: "Enhansoft Inc.",
-  role: "Junior Programmer " + sym.dash.em + " CO-OP",
+  role: "Junior Programmer",
+  coop: true,
   location: "Nepean, Canada",
   start: "May 2015",
   end: "August 2015",
@@ -76,8 +81,10 @@
 )
 
 #experience(
+  compact: true,
   organization: "LiveQoS Inc.",
-  role: "Software Developer Intern " + sym.dash.em + " CO-OP",
+  role: "Software Developer Intern",
+  coop: true,
   location: "Kanata, Canada",
   start: "September 2014",
   end: "December 2014",

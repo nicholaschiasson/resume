@@ -1,6 +1,6 @@
 #import "@preview/fontawesome:0.1.0": *
 
-#let darkgray = rgb("#555555");
+#let darkgray = rgb("#666666");
 
 #let resume(
   name: "",
@@ -94,11 +94,13 @@
 #let experience(
   organization: "",
   role: "",
+  coop: false,
   location: "",
   start: "",
   end: "",
   skills: (),
   responsibilities: (),
+  compact: false,
 ) = {
   assert(organization.len() > 0)
   assert(role.len() > 0)
@@ -107,13 +109,21 @@
   set block(below: 0.75em)
 
   [
-    - #block[
-      #grid(columns: (2fr, 1fr), row-gutter: 0.5em,
-        align(left, strong(organization)),
-        align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
-        align(left, emph(role)),
-        align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
-      )
+    #if not compact {list} else {text}[#block(below: 1em)[
+      #if compact {
+        grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
+          align(left)[*#role* #if coop {super[_CO-OP_]}],
+          align(center, strong[#organization#if location.len() > 0 [ (#location)]]),
+          align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+        )
+      } else {
+        grid(columns: (2fr, 1fr), row-gutter: 0.5em,
+          align(left, strong(organization)),
+          align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
+          align(left)[_#role #if coop [--- CO-OP]_],
+          align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+        )
+      }
 
       #if skills.len() > 0 [
         Applied Skills: #skills.join(", ")
@@ -126,7 +136,7 @@
         ]
       ]
     ]
-  ]
+  ]]
 }
 
 #let skills(
