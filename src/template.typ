@@ -126,7 +126,7 @@
       }
 
       #if skills.len() > 0 [
-        #smallcaps[Applied Skills]: #skills.join(", ")
+        #smallcaps[Applied Skills]: #skills.map(s => text(fill: darkgray, raw(s))).join(", ")
       ]
 
       #if responsibilities.len() > 0 [
@@ -144,7 +144,7 @@
   ..skills
 ) = {
   if category.len() > 0 [*#category*: ]
-  skills.pos().join(", ")
+  skills.pos().map(s => text(fill: darkgray, raw(s))).join(", ")
 }
 
 #let education(
@@ -234,7 +234,7 @@
       )
 
       #if skills.len() > 0 [
-        #smallcaps[Applied Skills]: #skills.join(", ")
+        #smallcaps[Applied Skills]: #skills.map(s => text(fill: darkgray, raw(s))).join(", ")
       ]
 
       #if responsibilities.len() > 0 [

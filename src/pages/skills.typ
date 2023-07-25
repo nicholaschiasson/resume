@@ -1,9 +1,9 @@
-#import "/symbols.typ": cpp;
 #import "/template.typ": skills;
 
 #skills(category: "Languages",
+  "Bash",
   "C",
-  cpp,
+  "C++",
   "C#",
   "CSS",
   "HTML",
@@ -24,11 +24,14 @@
   "GitHub Actions",
   "GitLab CI",
   "Grafana",
+  "HTTP",
+  "MySQL",
   "Nginx",
   "OpenGL",
   "OpenResty",
   "Prometheus",
   "React",
+  "Redis",
   "Splunk",
   "Unity",
   "Yew",
@@ -41,6 +44,4 @@
   "NixOS",
   "Ubuntu",
   "Windows",
-  "Android",
-  "iOS",
 )

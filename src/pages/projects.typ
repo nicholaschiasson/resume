@@ -1,18 +1,19 @@
 #import "/symbols.typ": cpp;
 #import "/template.typ": project;
 
-#project(
-  name: "inglix",
-  start: "2022",
-  end: "2023",
-  skills: (
-    "Axum",
-    "GitHub Actions",
-    "Leptos",
-    "PostgreSQL",
-    "Rust",
-  )
-)
+// TODO: Fill out once inglix project is complete
+// #project(
+//   name: "inglix",
+//   start: "2022",
+//   end: "2023",
+//   skills: (
+//     "Axum",
+//     "GitHub Actions",
+//     "Leptos",
+//     "PostgreSQL",
+//     "Rust",
+//   )
+// )
 
 #project(
   name: "mariversaire.com",
@@ -51,7 +52,7 @@
     "GitHub Actions",
     "HTML",
     "Rust",
-    "Tailwind",
+    "Tailwind CSS",
     "Yew",
   )
 )
