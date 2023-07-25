@@ -1,5 +1,7 @@
 #import "@preview/fontawesome:0.1.0": *
 
+#let darkgray = rgb("#555555");
+
 #let resume(
   name: "",
   address: "",
@@ -84,6 +86,8 @@
   set par(justify: true)
   set list(marker: ([•], [--]))
 
+  show heading: set text(fill: darkgray);
+
   body
 }
 
@@ -112,11 +116,11 @@
       )
 
       #if skills.len() > 0 [
-        #smallcaps[Applied Skills]: #skills.join(", ")
+        Applied Skills: #skills.join(", ")
       ]
 
       #if responsibilities.len() > 0 [
-        #smallcaps[Responsibilities]:
+        Responsibilities:
         #for responsibility in responsibilities [
           - #responsibility
         ]
@@ -157,7 +161,7 @@
       )
 
       #for highlight in highlights [
-        - *#highlight.metric*: #highlight.result
+        - #highlight.metric: #highlight.result
       ]
     ]
   ]
@@ -183,11 +187,11 @@
       )
 
       #if skills.len() > 0 [
-        #smallcaps[Applied Skills]: #skills.join(", ")
+        Applied Skills: #skills.join(", ")
       ]
 
       #if responsibilities.len() > 0 [
-        #smallcaps[Responsibilities]:
+        Responsibilities:
         #for responsibility in responsibilities [
           - #responsibility
         ]

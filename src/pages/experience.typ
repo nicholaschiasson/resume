@@ -7,17 +7,26 @@
   start: "September 2017",
   end: "Present",
   skills: (
-    "AWS",
+    "AWS (CDK, Certificates Manager, CloudFormation, EC2, ECS, IAM, Lambda, RDS, Route53, S3, Secrets Manager, Systems Manager)",
     "C",
     "C#",
+    "GitLab CI",
     "JavaScript",
+    "Lua",
+    "MySQL",
     "Nginx",
     "OpenResty",
+    "Redis",
     "TypeScript",
   ),
   responsibilities: (
-    [Operated the API gateway technology responsible for routing HTTP requests to all backends on the platform],
-    [Maintained Node.js and ASP.net microservice at the core of Ubisoft's online platform API],
+    [Operated the API gateway technology responsible for routing HTTP requests to all backend services on Ubisoft's online platform API.],
+    [Maintained Node.js and ASP.net RESTful microservices at the core of the platform's access control and identity validation.],
+    [Planned and coordinated a large migration from on premises infrastructure to AWS cloud for the API gateway product and various microservices, guaranteeing continued connectivity between the gateway and backends still hosted on premises.],
+    [Initiated the effort to adopt AWS CDK for all of the team's infrastructure as code and personally wrote the first iteration of TypeScript constructs and stacks to achieve feature parity with old CloudFormation templates.],
+    [Built a custom Nginx binary to suit the needs of the API gateway product, linking to numerous third party modules and custom lua scripts to greatly extend the features offered by the freely available version of Nginx.],
+    [Forked and rewrote an open source Nginx module, familiarly called Jdomain, to achieve dynamic DNS resolving during Nginx runtime.],
+    [Automated many jobs using GitLab CI and AWS Lambda such as deployment pipelines, certificate validation, and secret rotations.]
   )
 )
 
@@ -28,19 +37,20 @@
   start: "January 2016",
   end: "August 2016",
   skills: (
-    "C",
     "Bash",
-    "Jenkins",
+    "C",
     "JavaScript",
+    "Jenkins",
     "Netscape Plugin API",
-    "Set Top Box Hardware",
     "REST",
+    "Scrum",
+    "Set Top Box Hardware",
   ),
   responsibilities: (
-    [Implemented features for television set top box client application to handle data management and retrieval from customer front end REST API server],
-    [Responsible for delicately porting and merging a large customer product development branch with main project branch without introducing regression],
-    [Created new build script and integrated it with existing build server to satisfy requirements of the fast paced delivery cycle with client],
-    [Practiced an agile development method by working in a small scrum team iterating on single week long sprints, participating in weekly sprint demos, reviews, and planning, as well as daily stand up meetings],
+    [Implemented features for T.V. set top box client applications to fetch data and configuration from customer front end REST API servers.],
+    [Carefully performed a large feature merge from a customer product release branch back into the main line without causing regressions.],
+    [Created an advanced build script and integrated it with the existing build system to satisfy the fast paced delivery cycle with the client.],
+    [Practiced agile development on a small team iterating in single week sprints and performing weekly demos, reviews, and planning.],
   )
 )
 
@@ -52,16 +62,16 @@
   end: "August 2015",
   skills: (
     "C#",
-    "VBScript",
-    "SQL",
-    "Windows Management Instrumentation",
     "Microsoft Business Intelligence Development Studio",
     "Microsoft SQL Server Reporting Services",
+    "SQL",
+    "VBScript",
+    "Windows Management Instrumentation",
   ),
   responsibilities: (
-    [Developed an expanded version of an existing proprietary data collection product based on a set of requirements with new features to be implemented, migrating the code base from primarily VBScript to C\# .NET],
-    [Worked directly with Windows Management Instrumentation (WMI) to retrieve and store information necessary for the execution of the product],
-    [Designed several tens of Microsoft SQL Server Reporting Services reports to represent data collected by the product and to be viewed by customers],
+    [Rewrote proprietary data collection products from an unmanaged set of VBScripts into a singular, flexible C\# command-line application.],
+    [Configured application to manipulate Windows Management Instrumentation (WMI) to retrieve and store data during collection process.],
+    [Designed several tens of Microsoft SQL Server Reporting Services reports to visualize data collections and be delivered to customers.],
   )
 )
 
@@ -72,16 +82,16 @@
   start: "September 2014",
   end: "December 2014",
   skills: (
-    "Objective-C",
-    "C",
-    "Xcode",
     "Bash",
+    "C",
     "CMake",
     "Kernel Module Development",
+    "Objective-C",
+    "Xcode",
   ),
   responsibilities: (
-    [Inspected code base for Linux network kernel module to form basis of company technology and used this research to create model for corresponding Mac OS X network kernel extension],
-    [Designed and developed graphical user interface application for configuration of and statistics display for Mac OS X network kernel extension via socket communication],
-    [Created Mac OS X installer dmg file used for installing or updating selective components of Mac OS X product including an uninstaller script and pre-configuration of network kernel extension],
+    [Built a prototype for a MacOS network kernel extension (NKE) to model a port of the company's Linux network kernel module product.],
+    [Delivered a MacOS menu bar application to configure and display statistics fetched via socket communication for the NKE.],
+    [Bundled menu bar app with MacOS installer DMG which could also preconfigure the NKE, uninstall, or selectively update components.],
   )
 )
