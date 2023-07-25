@@ -216,22 +216,26 @@
 
 #let project(
   name: "",
+  description: "",
   start: "",
   end: "",
   skills: (),
   responsibilities: (),
 ) = {
   assert(name.len() > 0)
+  assert(description.len() > 0)
   assert(start.len() > 0)
 
   set block(below: 0.75em)
 
   [
-    - #block[
+    #block(below: 1em)[
       #grid(columns: (2fr, 1fr), row-gutter: 0.5em,
         align(left, strong(name)),
         align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
       )
+
+      #description
 
       #if skills.len() > 0 [
         #smallcaps[Applied Skills]: #skills.map(s => text(fill: darkgray, raw(s))).join(", ")
