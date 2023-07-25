@@ -1,0 +1,46 @@
+#import "/symbols.typ": cpp;
+#import "/template.typ": skills;
+
+#skills(category: "Languages",
+  "C",
+  cpp,
+  "C#",
+  "CSS",
+  "HTML",
+  "Java",
+  "JavaScript",
+  "Lua",
+  "Python",
+  "Rust",
+  "SQL",
+  "TypeScript",
+)
+
+#skills(category: "Technologies",
+  "Actix Web",
+  "AWS",
+  "Docker",
+  "Express.js",
+  "GitHub Actions",
+  "GitLab CI",
+  "Grafana",
+  "Nginx",
+  "OpenGL",
+  "OpenResty",
+  "Prometheus",
+  "React",
+  "Splunk",
+  "Unity",
+  "Yew",
+)
+
+#skills(category: "Operating Systems",
+  "Amazon Linux",
+  "CentOS",
+  "MacOS",
+  "NixOS",
+  "Ubuntu",
+  "Windows",
+  "Android",
+  "iOS",
+)

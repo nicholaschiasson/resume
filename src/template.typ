@@ -1,31 +1,31 @@
 #import "@preview/fontawesome:0.1.0": *
 
 #let resume(
-	name: "",
-	address: "",
-	phone: "",
-	email: "",
-	homepage: "",
-	github: "",
-	linkedin: "",
+  name: "",
+  address: "",
+  phone: "",
+  email: "",
+  homepage: "",
+  github: "",
+  linkedin: "",
   twitter: "",
-	ambition: "",
-	body,
+  ambition: "",
+  body,
 ) = {
   set document(author: name, title: name + " CV")
   set page(
     paper: "us-letter",
     margin: (left: 10mm, right: 10mm, top: 15mm, bottom: 15mm),
-		footer: [
-			#set align(right)
-			#set text(8pt)
-			#name | #counter(page).display(
-				"1 of 1",
-				both: true
-			)
-		],
+    footer: [
+      #set align(right)
+      #set text(8pt)
+      #name | #counter(page).display(
+        "1 of 1",
+        both: true
+      )
+    ],
   )
-  set text(font: "Linux Libertine", hyphenate: false, lang: "en")
+  set text(font: "Times New Roman", hyphenate: false, lang: "en", 10pt)
 
   let bottom_padding = 0.5em
 
@@ -112,11 +112,11 @@
       )
 
       #if skills.len() > 0 [
-        *Applied Skills:* #skills.join(", ")
+        #smallcaps[Applied Skills]: #skills.join(", ")
       ]
 
       #if responsibilities.len() > 0 [
-        *Responsibilities*:
+        #smallcaps[Responsibilities]:
         #for responsibility in responsibilities [
           - #responsibility
         ]
@@ -149,9 +149,10 @@
 
   [
     - #block[
-      #grid(columns: (4fr, 1fr), row-gutter: 0.5em,
+      #grid(columns: (4fr, 1fr), gutter: 1em, row-gutter: 0.5em,
         align(left, strong(institution)),
-        align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}), align(left, emph(degree)),
+        align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
+        align(left, emph(degree)),
         align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
       )
 
@@ -182,11 +183,11 @@
       )
 
       #if skills.len() > 0 [
-        *Applied Skills:* #skills.join(", ")
+        #smallcaps[Applied Skills]: #skills.join(", ")
       ]
 
       #if responsibilities.len() > 0 [
-        *Responsibilities*:
+        #smallcaps[Responsibilities]:
         #for responsibility in responsibilities [
           - #responsibility
         ]
