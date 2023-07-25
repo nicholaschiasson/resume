@@ -4,7 +4,8 @@
   name: "Nicholas Chiasson",
   phone: " +16138753155",
   email: "nicholasomerchiasson@gmail.com",
-//  homepage: "https://nicholaschiasson.github.io",
+  // TODO: Replace linkedin link with homepage when personal site is renewed.
+  // homepage: "https://nicholaschiasson.github.io",
   github: "nicholaschiasson",
   linkedin: "nicholaschiasson",
 )

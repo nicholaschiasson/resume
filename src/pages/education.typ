@@ -2,7 +2,13 @@
 
 #education(
   institution: "Carleton University",
-  degree: "Bachelor of Computer Science Honours, Computer Game Development, Minor in Japanese",
+  degree: "Bachelor",
+  discipline: "Computer Science",
+  distinction: "Honours",
+  focus: "Computer Game Development",
+  minors: (
+    "Japanese",
+  ),
   location: "Ottawa, Canada",
   start: "2012",
   end: "2017",

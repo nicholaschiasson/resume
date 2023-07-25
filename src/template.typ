@@ -109,7 +109,7 @@
   set block(below: 0.75em)
 
   [
-    #if not compact {list} else {text}[#block(below: 1em)[
+    #if compact {text} else {list}[#block(below: 1em)[
       #if compact {
         grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
           align(left)[*#role* #if coop {super[_CO-OP_]}],
@@ -150,30 +150,67 @@
 #let education(
   institution: "",
   degree: "",
+  discipline: "",
+  distinction: "",
+  focus: "",
+  minors: (),
   location: "",
   start: "",
   end: "",
   highlights: (),
+  compact: false,
 ) = {
   assert(institution.len() > 0)
   assert(degree.len() > 0)
+  assert(discipline.len() > 0)
   assert(start.len() > 0)
 
   set block(below: 0.75em)
 
+  // "Bachelor of Computer Science Honours, Computer Game Development, Minor in Japanese",
+  // B.C.S Honours, Computer Game Development
+  let title = if compact {
+    (degree + " " + discipline).split(" ").map(s => upper(s.at(0))).join(".") + if distinction.len() > 0 [ #distinction]
+  } else {
+    let t = degree + " of " + discipline
+    if distinction.len() > 0 {
+      t += [ #distinction]
+    }
+    if focus.len() > 0 {
+      t += [, #focus]
+    }
+    if minors.len() > 0 {
+      if minors.len() > 1 {
+        t += [, Minors ]
+      } else {
+        t += [, Minor in ]
+      }
+      t += minors.join(", ")
+    }
+    t
+  }
+
   [
-    - #block[
-      #grid(columns: (4fr, 1fr), gutter: 1em, row-gutter: 0.5em,
-        align(left, strong(institution)),
-        align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
-        align(left, emph(degree)),
-        align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
-      )
+    #if compact {text} else {list}[#block(below: 1em)[
+      #if compact {
+        grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
+          align(left, strong(title)),
+          align(center, strong[#institution#if location.len() > 0 [ (#location)]]),
+          align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+        )
+      } else {
+        grid(columns: (4fr, 1fr), gutter: 1em, row-gutter: 0.5em,
+          align(left, strong(institution)),
+          align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
+          align(left, emph(title)),
+          align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+        )
+      }
 
       #for highlight in highlights [
         - #highlight.metric: #highlight.result
       ]
-    ]
+    ]]
   ]
 }
 
