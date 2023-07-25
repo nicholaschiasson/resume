@@ -55,7 +55,7 @@
       }
 
       if github.len() > 0 {
-        contacts.push((content: link("http://github.com/" + github)[ #github], symbol: fa-github()))
+        contacts.push((content: link("https://github.com/" + github)[ #github], symbol: fa-github()))
       }
 
       if linkedin.len() > 0 {
