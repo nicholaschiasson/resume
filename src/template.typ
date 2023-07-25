@@ -126,11 +126,11 @@
       }
 
       #if skills.len() > 0 [
-        Applied Skills: #skills.join(", ")
+        #smallcaps[Applied Skills]: #skills.join(", ")
       ]
 
       #if responsibilities.len() > 0 [
-        Responsibilities:
+        #smallcaps[Responsibilities]:
         #for responsibility in responsibilities [
           - #responsibility
         ]
@@ -234,11 +234,11 @@
       )
 
       #if skills.len() > 0 [
-        Applied Skills: #skills.join(", ")
+        #smallcaps[Applied Skills]: #skills.join(", ")
       ]
 
       #if responsibilities.len() > 0 [
-        Responsibilities:
+        #smallcaps[Responsibilities]:
         #for responsibility in responsibilities [
           - #responsibility
         ]
