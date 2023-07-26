@@ -17,7 +17,7 @@
 
   project(
     name: "ngx_upstream_jdomain",
-    description: "A now abandoned Nginx module that I forked, rewrote, and now passively maintain as an open source project, enabling Nginx upstreams to be configured to perform asynchronous DNS lookups. Used in production in the API gateway solution built by my team at Ubisoft.",
+    description: "A now abandoned Nginx module that I forked, rewrote, and now passively maintain as an open source project, enabling Nginx upstreams to be configured to perform asynchronous DNS lookups on an interval to respect TTL. Used in production in the API gateway solution built by my team at Ubisoft.",
     start: "2019",
     end: "Present",
     skills: (

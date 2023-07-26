@@ -1,7 +1,6 @@
 #import "/template.typ": experience;
 
 #experience(
-  compact: true,
   organization: "Ubisoft Montreal",
   role: "Online Programmer",
   location: "Montreal, Canada",
@@ -34,7 +33,6 @@
 )
 
 #experience(
-  compact: true,
   organization: "Espial Group Inc.",
   role: "Embedded Device Software Developer",
   coop: true,
@@ -60,7 +58,6 @@
 )
 
 #experience(
-  compact: true,
   organization: "Enhansoft Inc.",
   role: "Junior Programmer",
   coop: true,
@@ -83,7 +80,6 @@
 )
 
 #experience(
-  compact: true,
   organization: "LiveQoS Inc.",
   role: "Software Developer Intern",
   coop: true,
