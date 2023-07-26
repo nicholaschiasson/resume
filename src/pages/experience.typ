@@ -21,6 +21,8 @@
     "TypeScript",
   ),
   responsibilities: (
+    // Add detail about how I have been in team lead role for a while and have mentored
+    // Remove details about custom library
     [Operated the API gateway technology responsible for routing HTTP requests to all backend services on Ubisoft's online platform API.],
     [Maintained Node.js and ASP.net RESTful microservices at the core of the platform's access control and identity validation.],
     [Planned and coordinated a large migration from on premises infrastructure to AWS cloud for the API gateway product and various microservices, guaranteeing continued connectivity between the gateway and backends still hosted on premises.],
