@@ -10,26 +10,42 @@
   linkedin: "nicholaschiasson",
 )
 
-== Experience
+#v(1em)
 
-#line(length: 100%, stroke: 0.5pt)
+#box[
+  == Experience
 
-#include "pages/experience.typ";
+  #line(length: 100%, stroke: 0.5pt)
 
-== Core Technical Skills
+  #include "pages/experience.typ";
+]
 
-#line(length: 100%, stroke: 0.5pt)
+#v(1em)
 
-#include "pages/skills.typ";
+#box[
+  == Core Technical Skills
 
-== Education
+  #line(length: 100%, stroke: 0.5pt)
 
-#line(length: 100%, stroke: 0.5pt)
+  #include "pages/skills.typ";
+]
 
-#include "pages/education.typ";
+#v(1em)
 
-== Applied Projects
+#box[
+  == Education
 
-#line(length: 100%, stroke: 0.5pt)
+  #line(length: 100%, stroke: 0.5pt)
 
-#include "pages/projects.typ";
+  #include "pages/education.typ";
+]
+
+#v(1em)
+
+#box[
+  == Applied Projects
+
+  #line(length: 100%, stroke: 0.5pt)
+
+  #include "pages/projects.typ";
+]

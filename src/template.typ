@@ -106,37 +106,33 @@
   assert(role.len() > 0)
   assert(start.len() > 0)
 
-  set block(below: 0.75em)
+  block(below: 2em)[
+    #if compact {
+      grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
+        align(left)[*#role* #if coop {super[_CO-OP_]}],
+        align(center, strong[#organization#if location.len() > 0 [ (#location)]]),
+        align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+      )
+    } else {
+      grid(columns: (2fr, 1fr), row-gutter: 0.5em,
+        align(left, strong(organization)),
+        align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
+        align(left)[_#role #if coop {super[CO-OP]}_],
+        align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+      )
+    }
 
-  [
-    #if compact {text} else {list}[#block(below: 1em)[
-      #if compact {
-        grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
-          align(left)[*#role* #if coop {super[_CO-OP_]}],
-          align(center, strong[#organization#if location.len() > 0 [ (#location)]]),
-          align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
-        )
-      } else {
-        grid(columns: (2fr, 1fr), row-gutter: 0.5em,
-          align(left, strong(organization)),
-          align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
-          align(left)[_#role #if coop [--- CO-OP]_],
-          align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
-        )
-      }
+    #if skills.len() > 0 [
+      #smallcaps[Applied Skills]: #skills.map(s => text(fill: darkgray, raw(s))).join(", ")
+    ]
 
-      #if skills.len() > 0 [
-        #smallcaps[Applied Skills]: #skills.map(s => text(fill: darkgray, raw(s))).join(", ")
-      ]
-
-      #if responsibilities.len() > 0 [
-        #smallcaps[Responsibilities]:
-        #for responsibility in responsibilities [
-          - #responsibility
-        ]
+    #if responsibilities.len() > 0 [
+      #smallcaps[Responsibilities]:
+      #for responsibility in responsibilities [
+        - #responsibility
       ]
     ]
-  ]]
+  ]
 }
 
 #let skills(
@@ -165,10 +161,6 @@
   assert(discipline.len() > 0)
   assert(start.len() > 0)
 
-  set block(below: 0.75em)
-
-  // "Bachelor of Computer Science Honours, Computer Game Development, Minor in Japanese",
-  // B.C.S Honours, Computer Game Development
   let title = if compact {
     (degree + " " + discipline).split(" ").map(s => upper(s.at(0))).join(".") + if distinction.len() > 0 [ #distinction]
   } else {
@@ -190,27 +182,25 @@
     t
   }
 
-  [
-    #if compact {text} else {list}[#block(below: 1em)[
-      #if compact {
-        grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
-          align(left, strong(title)),
-          align(center, strong[#institution#if location.len() > 0 [ (#location)]]),
-          align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
-        )
-      } else {
-        grid(columns: (4fr, 1fr), gutter: 1em, row-gutter: 0.5em,
-          align(left, strong(institution)),
-          align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
-          align(left, emph(title)),
-          align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
-        )
-      }
+  block[
+    #if compact {
+      grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
+        align(left, strong(title)),
+        align(center, strong[#institution#if location.len() > 0 [ (#location)]]),
+        align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+      )
+    } else {
+      grid(columns: (4fr, 1fr), gutter: 1em, row-gutter: 0.5em,
+        align(left, strong(institution)),
+        align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
+        align(left, emph(title)),
+        align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+      )
+    }
 
-      #for highlight in highlights [
-        - #highlight.metric: #highlight.result
-      ]
-    ]]
+    #for highlight in highlights [
+      - #highlight.metric: #highlight.result
+    ]
   ]
 }
 
@@ -228,24 +218,22 @@
 
   set block(below: 0.75em)
 
-  [
-    #block(below: 1em)[
-      #grid(columns: (2fr, 1fr), row-gutter: 0.5em,
-        align(left, strong(name)),
-        align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
-      )
+  block[
+    #grid(columns: (2fr, 1fr), row-gutter: 0.5em,
+      align(left, strong(name)),
+      align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+    )
 
-      #description
+    #description
 
-      #if skills.len() > 0 [
-        #smallcaps[Applied Skills]: #skills.map(s => text(fill: darkgray, raw(s))).join(", ")
-      ]
+    #if skills.len() > 0 [
+      #smallcaps[Applied Skills]: #skills.map(s => text(fill: darkgray, raw(s))).join(", ")
+    ]
 
-      #if responsibilities.len() > 0 [
-        #smallcaps[Responsibilities]:
-        #for responsibility in responsibilities [
-          - #responsibility
-        ]
+    #if responsibilities.len() > 0 [
+      #smallcaps[Responsibilities]:
+      #for responsibility in responsibilities [
+        - #responsibility
       ]
     ]
   ]
