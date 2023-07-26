@@ -22,7 +22,7 @@
   responsibilities: (
     [Operated the API gateway technology responsible for routing HTTP requests to all backend services on Ubisoft's online platform API.],
     [Maintained Node.js and ASP.net RESTful microservices at the core of the platform's access control and identity validation.],
-    [Took up a leadership role after the departure of a senior developer collegue by more actively engaging in and embracing ownership of my products and eventually mentoring several new hires.],
+    [Took up a leadership role after the departure of a senior developer colleague by more actively engaging in and embracing ownership of my products and eventually mentoring several new hires.],
     [Planned and coordinated a large migration from on premises infrastructure to AWS cloud for the API gateway product and various microservices, guaranteeing continued connectivity between the gateway and backends still hosted on premises.],
     [Designed and implemented a complex, dynamically configurable, distributed rate limiting system for the API gateway using a special algorithm to limit the rate of increase of HTTP requests reaching the platform.],
     [Initiated the effort to adopt AWS CDK for all of the team's infrastructure as code and personally wrote the first iteration of TypeScript constructs and stacks to achieve feature parity with old CloudFormation templates.],
