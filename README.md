@@ -1,6 +1,8 @@
-# resume as code [![build status](https://github.com/nicholaschiasson/resume/actions/workflows/main.yml/badge.svg)](https://github.com/nicholaschiasson/resume/releases/latest)
+# resume as code [![build status](https://github.com/nicholaschiasson/resume/actions/workflows/main.yml/badge.svg)](https://github.com/nicholaschiasson/resume/actions)
 
 My professional resume and all associated resources, maintained as code and automated with CI/CD.
+
+See it live here: https://nicholaschiasson.github.io/resume
 
 # Development
 
@@ -29,7 +31,7 @@ Watch typst source and rebuild on changes.
 just watch
 ```
 
-Both the `build` and `watch` tasks invoke `typst` and output the resume as a pdf to `resume.pdf` in the root of the project.
+Both the `build` and `watch` tasks invoke `typst` and output the resume as a pdf to `Nicholas_Chiasson_Resume.pdf` in the root of the project.
 
 In the development shell, the `typst` command is made available in case you want to have more control over the build process.
 
