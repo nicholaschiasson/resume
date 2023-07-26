@@ -20,15 +20,14 @@
     "TypeScript",
   ),
   responsibilities: (
-    // Add detail about how I have been in team lead role for a while and have mentored
-    // Remove details about custom library
     [Operated the API gateway technology responsible for routing HTTP requests to all backend services on Ubisoft's online platform API.],
     [Maintained Node.js and ASP.net RESTful microservices at the core of the platform's access control and identity validation.],
+    [Took up a leadership role after the departure of a senior developer collegue by more actively engaging in and embracing ownership of my products and eventually mentoring several new hires.],
     [Planned and coordinated a large migration from on premises infrastructure to AWS cloud for the API gateway product and various microservices, guaranteeing continued connectivity between the gateway and backends still hosted on premises.],
+    [Designed and implemented a complex, dynamically configurable, distributed rate limiting system for the API gateway using a special algorithm to limit the rate of increase of HTTP requests reaching the platform.],
     [Initiated the effort to adopt AWS CDK for all of the team's infrastructure as code and personally wrote the first iteration of TypeScript constructs and stacks to achieve feature parity with old CloudFormation templates.],
-    [Built a custom Nginx binary to suit the needs of the API gateway product, linking to numerous third party modules and custom lua scripts to greatly extend the features offered by the freely available version of Nginx.],
     [Forked and rewrote an open source Nginx module, familiarly called Jdomain, to achieve dynamic DNS resolving during Nginx runtime.],
-    [Automated many jobs using GitLab CI and AWS Lambda such as deployment pipelines, certificate validation, and secret rotations.]
+    [Automated many jobs using GitLab CI and AWS Lambda such as deployment pipelines, certificate validation, and secret rotations.],
   )
 )
 
