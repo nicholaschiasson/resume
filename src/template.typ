@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.1.0": *
+#import "@preview/fontawesome:0.1.0": *;
 
 #let darkgray = rgb("#666666");
 
