@@ -11,7 +11,6 @@
         buildInputs = [
           pkgs.texlive.combined.scheme-full
           pkgs.nodejs_18
-          pkgs.nerdfonts
           pkgs.starship
           pkgs.wkhtmltopdf-bin
         ];

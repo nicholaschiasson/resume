@@ -4,13 +4,11 @@
   name: "Nicholas Chiasson",
   phone: " +16138753155",
   email: "nicholasomerchiasson@gmail.com",
-  // TODO: Replace linkedin link with homepage when personal site is renewed.
+  // Note: Not including personal site due to lack of space.
   // homepage: "https://nicholaschiasson.github.io",
   github: "nicholaschiasson",
   linkedin: "nicholaschiasson",
 )
-
-#v(1em)
 
 #box[
   == Experience
@@ -18,16 +16,6 @@
   #line(length: 100%, stroke: 0.5pt)
 
   #include "pages/experience.typ";
-]
-
-#v(1em)
-
-#box[
-  == Core Technical Skills
-
-  #line(length: 100%, stroke: 0.5pt)
-
-  #include "pages/skills.typ";
 ]
 
 #v(1em)
@@ -43,9 +31,19 @@
 #v(1em)
 
 #box[
-  == Applied Projects
+  == Projects
 
   #line(length: 100%, stroke: 0.5pt)
 
   #include "pages/projects.typ";
+]
+
+#v(1em)
+
+#box[
+  == Technical Skills
+
+  #line(length: 100%, stroke: 0.5pt)
+
+  #include "pages/skills.typ";
 ]

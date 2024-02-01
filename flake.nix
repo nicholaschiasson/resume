@@ -12,7 +12,6 @@
       devShells.default = pkgs.mkShell {
         buildInputs = [
           pkgs.just
-          pkgs.nerdfonts
           pkgs.starship
           pkgs.typst
         ];
