@@ -1,4 +1,4 @@
-#import "/template.typ": education;
+#import "../template.typ": education;
 
 #education(
   institution: "Carleton University",

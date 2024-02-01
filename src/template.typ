@@ -17,7 +17,7 @@
   set document(author: name, title: name + " CV")
   set page(
     paper: "us-letter",
-    margin: (left: 10mm, right: 10mm, top: 15mm, bottom: 15mm),
+    margin: (left: 0.5in, right: 0.5in, top: 0.5in, bottom: 0.5in),
     footer: [
       #set align(right)
       #set text(8pt)
@@ -27,7 +27,8 @@
       )
     ],
   )
-  set text(font: "Times New Roman", hyphenate: false, lang: "en", 10pt)
+  set text(font: "Times New Roman", hyphenate: false, lang: "en", 10.5pt)
+  set list(indent: 1em)
 
   let bottom_padding = 0.5em
 
@@ -43,38 +44,34 @@
       let contacts = ()
 
       if phone.len() > 0 {
-        contacts.push((content: link("tel:" + phone)[ #phone], symbol: fa-phone()))
+        contacts.push((content: link("tel:" + phone)[#phone], symbol: fa-phone()))
       }
 
       if email.len() > 0 {
-        contacts.push((content: link("mailto:" + email)[ #email], symbol: fa-envelope()))
+        contacts.push((content: link("mailto:" + email)[#email], symbol: fa-envelope()))
       }
 
       if homepage.len() > 0 {
-        contacts.push((content: link(homepage)[ #homepage.trim(regex("^https?://"))], symbol: fa-link()))
+        contacts.push((content: link(homepage)[#homepage.trim(regex("^https?://"))], symbol: fa-link()))
       }
 
       if github.len() > 0 {
-        contacts.push((content: link("https://github.com/" + github)[ #github], symbol: fa-github()))
+        contacts.push((content: link("https://github.com/" + github)[#github], symbol: fa-github()))
       }
 
       if linkedin.len() > 0 {
-        contacts.push((content: link("https://linkedin.com/in/" + linkedin)[ #linkedin], symbol: fa-linkedin()))
+        contacts.push((content: link("https://linkedin.com/in/" + linkedin)[#linkedin], symbol: fa-linkedin()))
       }
 
       if twitter.len() > 0 {
-        contacts.push((content: link("https://twitter.com/" + twitter)[ #twitter], symbol: fa-twitter()))
+        contacts.push((content: link("https://twitter.com/" + twitter)[#twitter], symbol: fa-twitter()))
       }
 
-      let c = contacts.enumerate().map(contact =>
-        if calc.even(contact.at(0)) {
-          (align(right)[#contact.at(1).content #contact.at(1).symbol], align(center)[*|*])
-        } else {
-          align(left)[#contact.at(1).symbol #contact.at(1).content]
-        }
+      let c = contacts.map(contact =>
+          [#contact.symbol #contact.content]
       ).flatten();
 
-      grid(columns: (1fr, 0.05fr, 1fr), row-gutter: bottom_padding, ..c)
+      c.join[ *|* ]
     }
 
     #if ambition.len() > 0 [
@@ -106,7 +103,7 @@
   assert(role.len() > 0)
   assert(start.len() > 0)
 
-  block(below: 2em)[
+  block(inset: (left: 1em))[
     #if compact {
       grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
         align(left)[*#role* #if coop {super[_CO-OP_]}],
@@ -123,11 +120,10 @@
     }
 
     #if skills.len() > 0 [
-      #smallcaps[Applied Skills]: #skills.map(s => text(fill: darkgray, raw(s))).join(", ")
+      #skills.map(s => text(fill: darkgray, raw(s))).join(", ")
     ]
 
     #if responsibilities.len() > 0 [
-      #smallcaps[Responsibilities]:
       #for responsibility in responsibilities [
         - #responsibility
       ]
@@ -139,8 +135,10 @@
   category: "",
   ..skills
 ) = {
-  if category.len() > 0 [*#category*: ]
-  skills.pos().map(s => text(fill: darkgray, raw(s))).join(", ")
+  block(inset: (left: 1em))[
+    #if category.len() > 0 [*#category*: ]
+    #skills.pos().map(s => text(fill: darkgray, raw(s))).join(", ")
+  ]
 }
 
 #let education(
@@ -182,7 +180,7 @@
     t
   }
 
-  block[
+  block(inset: (left: 1em))[
     #if compact {
       grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
         align(left, strong(title)),
@@ -211,27 +209,30 @@
   end: "",
   skills: (),
   responsibilities: (),
+  repo: "",
 ) = {
   assert(name.len() > 0)
   assert(description.len() > 0)
   assert(start.len() > 0)
 
-  set block(below: 0.75em)
+  let proj = strong(if repo.len() > 0 {
+    link(repo)[#name]
+  } else {
+    name
+  })
 
-  block[
-    #grid(columns: (2fr, 1fr), row-gutter: 0.5em,
-      align(left, strong(name)),
+  if skills.len() > 0 {
+    proj = [#proj | #skills.map(s => text(fill: darkgray, raw(s))).join(", ")]
+  }
+
+  block(inset: (left: 1em))[
+    #grid(columns: (3fr, 1fr), row-gutter: 0.5em,
+      align(left, proj),
       align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
     )
 
-    #description
-
-    #if skills.len() > 0 [
-      #smallcaps[Applied Skills]: #skills.map(s => text(fill: darkgray, raw(s))).join(", ")
-    ]
-
+    - #description
     #if responsibilities.len() > 0 [
-      #smallcaps[Responsibilities]:
       #for responsibility in responsibilities [
         - #responsibility
       ]
