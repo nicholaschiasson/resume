@@ -2,7 +2,7 @@
 
 #experience(
   organization: "Ubisoft Montreal",
-  role: "Online Programmer",
+  role: "Software Engineer",
   location: "Montreal, Canada",
   start: "September 2017",
   end: "Present",
