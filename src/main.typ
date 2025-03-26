@@ -5,7 +5,7 @@
   phone: " +16138753155",
   email: "nicholasomerchiasson@gmail.com",
   // Note: Not including personal site due to lack of space.
-  // homepage: "https://nicholaschiasson.github.io",
+  // homepage: "https://nicholas.chiasson.dev",
   github: "nicholaschiasson",
   linkedin: "nicholaschiasson",
 )

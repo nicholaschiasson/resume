@@ -42,15 +42,14 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-fGwl8AsiZ9OgIgMv0jlAsEyu1/PJ0ITKTgcvpp9SEb0=",
         "path": "./legacy",
         "type": "path"
       },
       "original": {
         "path": "./legacy",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "nixpkgs": {
       "locked": {

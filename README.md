@@ -2,7 +2,7 @@
 
 My professional resume and all associated resources, maintained as code and automated with CI/CD.
 
-See it live here: https://nicholaschiasson.github.io/resume
+See it live here: https://nicholas.chiasson.dev/resume
 
 # Development
 
