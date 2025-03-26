@@ -36,21 +36,6 @@
         "type": "github"
       }
     },
-    "legacy": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "path": "./legacy",
-        "type": "path"
-      },
-      "original": {
-        "path": "./legacy",
-        "type": "path"
-      },
-      "parent": []
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1689631193,
@@ -82,7 +67,6 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "legacy": "legacy",
         "nixpkgs": "nixpkgs_2"
       }
     },
