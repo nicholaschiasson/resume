@@ -18,7 +18,7 @@ Install the project toolchain defined in `mise.toml`.
 mise install
 ```
 
-If `just` or `typst` are not found, enable mise shell activation so tools are on your PATH:
+If `typst` is not found, enable mise shell activation so tools are on your PATH:
 
 ```bash
 # Bash
@@ -33,13 +33,13 @@ exec zsh -l
 Build the resume from Typst source.
 
 ```shell
-just build
+mise run build
 ```
 
 Watch typst source and rebuild on changes.
 
 ```shell
-just watch
+mise run watch
 ```
 
 Both the `build` and `watch` tasks invoke `typst` and output the resume as a pdf to `Nicholas_Chiasson_Resume.pdf` in the root of the project.
