@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+#MISE description="Build Typst files"
+
+typst c --font-path ./rsrc/fonts/ src/main.typ "$OUTPUT_NAME"

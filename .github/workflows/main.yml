@@ -4,8 +4,13 @@ on:
   push:
     branches:
       - 'main'
+    paths:
+      - '**.typ'
+      - '.github/workflows/**'
   pull_request:
-
+    paths:
+      - '**.typ'
+      - '.github/workflows/**'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -20,15 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
-      - name: Install Nix
-        uses: cachix/install-nix-action@v22
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/checkout@v6
+      - name: Install Mise
+        uses: jdx/mise-action@v2
       - name: Build
-        run: nix develop -c just build
+        run: mise run build
       - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+        uses: actions/upload-artifact@v6
         with:
           path: '*.pdf'
 
@@ -40,7 +43,7 @@ jobs:
       version: ${{ steps.stamp.outputs.version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6
       - name: Check semver bump
         id: check-semver
         run: |
@@ -56,21 +59,21 @@ jobs:
       - name: Bump major version and push tag
         id: bump-major
         if: ${{ steps.check-semver.outputs.semver == 'major' }}
-        uses: anothrNick/github-tag-action@1.65.0
+        uses: anothrNick/github-tag-action@1.75.0
         env:
           DEFAULT_BUMP: major
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Bump minor version and push tag
         id: bump-minor
         if: ${{ steps.check-semver.outputs.semver == 'minor' }}
-        uses: anothrNick/github-tag-action@1.65.0
+        uses: anothrNick/github-tag-action@1.75.0
         env:
           DEFAULT_BUMP: minor
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Bump patch version and push tag
         id: bump-patch
         if: ${{ steps.check-semver.outputs.semver == 'patch' }}
-        uses: anothrNick/github-tag-action@1.65.0
+        uses: anothrNick/github-tag-action@1.75.0
         env:
           DEFAULT_BUMP: patch
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -94,9 +97,9 @@ jobs:
     needs: [build, tag]
     steps:
       - name: Download Build Artifacts
-        uses: actions/download-artifact@v4.2.1
+        uses: actions/download-artifact@v7
       - name: Release
-        uses: softprops/action-gh-release@v0.1.15
+        uses: softprops/action-gh-release@v2.5.0
         with:
           files: 'artifact/*.pdf'
           tag_name: ${{ needs.tag.outputs.version }}
@@ -115,17 +118,18 @@ jobs:
     needs: [build, release]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6
       - name: Download Build Artifacts
-        uses: actions/download-artifact@v4.2.1
+        id: download
+        uses: actions/download-artifact@v7
       - name: Move static files
-        run: mv artifact/*.pdf pages/
+        run: mv ${{ steps.download.outputs.download-path }}/*.pdf pages/
       - name: Setup Pages
-        uses: actions/configure-pages@v5.0.0
+        uses: actions/configure-pages@v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3.0.1
+        uses: actions/upload-pages-artifact@v4
         with:
           path: 'pages'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.0.5
+        uses: actions/deploy-pages@v4

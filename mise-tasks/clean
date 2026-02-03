@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+#MISE description="Clean generated files"
+
+rm -f "$OUTPUT_NAME"

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+#MISE description="Watch and compile Typst files on changes"
+
+typst w --font-path ./rsrc/fonts/ src/main.typ "$OUTPUT_NAME"

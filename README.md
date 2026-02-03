@@ -8,18 +8,29 @@ See it live here: https://nicholas.chiasson.dev/resume
 
 ## Prerequisites
 
-- [nix](https://nixos.org/download.html)
-- [nix flakes](https://nixos.wiki/wiki/Flakes#Enable_flakes)
+- [mise](https://mise.jdx.dev)
 
 ## How-to
 
-Create the development shell environment.
+Install the project toolchain defined in `mise.toml`.
 
 ```shell
-nix develop
+mise install
 ```
 
-Build the resume from typst source.
+If `just` or `typst` are not found, enable mise shell activation so tools are on your PATH:
+
+```bash
+# Bash
+echo 'eval "$(mise activate bash)"' >> ~/.bashrc
+exec bash -l
+
+# Zsh
+echo 'eval "$(mise activate zsh)"' >> ~/.zshrc
+exec zsh -l
+```
+
+Build the resume from Typst source.
 
 ```shell
 just build
@@ -33,4 +44,8 @@ just watch
 
 Both the `build` and `watch` tasks invoke `typst` and output the resume as a pdf to `Nicholas_Chiasson_Resume.pdf` in the root of the project.
 
-In the development shell, the `typst` command is made available in case you want to have more control over the build process.
+If you prefer to run `typst` directly, it is available in your PATH after `mise install`, for example:
+
+```shell
+typst c --font-path ./rsrc/fonts/ src/main.typ Nicholas_Chiasson_Resume.pdf
+```
