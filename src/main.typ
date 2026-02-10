@@ -21,7 +21,10 @@
 #v(1em)
 
 #box[
-  #grid(columns: (1.5fr, 1fr), gutter: 1em, row-gutter: 0.5em,
+  #grid(
+    columns: (1.5fr, 1fr),
+    gutter: 1em,
+    row-gutter: 0.5em,
     [
       == Technical Skills
 

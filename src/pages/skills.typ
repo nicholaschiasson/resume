@@ -1,6 +1,7 @@
 #import "../template.typ": skills;
 
-#skills(category: "Languages",
+#skills(
+  category: "Languages",
   "Rust",
   "Go",
   "Python",
@@ -16,7 +17,8 @@
   "SQL",
 )
 
-#skills(category: "Technologies",
+#skills(
+  category: "Technologies",
   "AWS",
   // "AWS CDK",
   // "CloudFormation",

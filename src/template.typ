@@ -21,10 +21,7 @@
     footer: [
       #set align(right)
       #set text(8pt)
-      #name | #counter(page).display(
-        "1 of 1",
-        both: true
-      )
+      #name | #counter(page).display("1 of 1", both: true)
     ],
   )
   set text(font: "Times New Roman", hyphenate: false, lang: "en", 10.5pt)
@@ -67,9 +64,7 @@
         contacts.push((content: link("https://twitter.com/" + twitter)[#twitter], symbol: fa-twitter()))
       }
 
-      let c = contacts.map(contact =>
-          [#contact.symbol #contact.content]
-      ).flatten();
+      let c = contacts.map(contact => [#contact.symbol #contact.content]).flatten()
 
       c.join[ *|* ]
     }
@@ -83,7 +78,7 @@
   set par(justify: true)
   set list(marker: ([•], [--]))
 
-  show heading: set text(fill: darkgray);
+  show heading: set text(fill: darkgray)
 
   body
 }
@@ -105,17 +100,19 @@
 
   block(inset: (left: 1em))[
     #if compact {
-      grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
-        align(left)[*#role* #if coop {super[_CO-OP_]}],
+      grid(
+        columns: (1fr, 1fr, 1fr),
+        row-gutter: 0.5em,
+        align(left)[*#role* #if coop { super[_CO-OP_] }],
         align(center, strong[#organization#if location.len() > 0 [ (#location)]]),
         align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
       )
     } else {
-      grid(columns: (2fr, 1fr), row-gutter: 0.5em,
-        align(left, strong(organization)),
-        align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
-        align(left)[_#role #if coop {super[CO-OP]}_],
-        align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+      grid(
+        columns: (2fr, 1fr),
+        row-gutter: 0.5em,
+        align(left, strong(organization)), align(right, if location.len() > 0 { strong[#fa-location-dot() #location] }),
+        align(left)[_#role #if coop { super[CO-OP] }_], align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
       )
     }
 
@@ -133,7 +130,7 @@
 
 #let skills(
   category: "",
-  ..skills
+  ..skills,
 ) = {
   block(inset: (left: 1em))[
     #if category.len() > 0 [*#category*: ]
@@ -182,17 +179,20 @@
 
   block(inset: (left: 1em))[
     #if compact {
-      grid(columns: (1fr, 1fr, 1fr), row-gutter: 0.5em,
+      grid(
+        columns: (1fr, 1fr, 1fr),
+        row-gutter: 0.5em,
         align(left, strong(title)),
         align(center, strong[#institution#if location.len() > 0 [ (#location)]]),
         align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
       )
     } else {
-      grid(columns: (1fr, 1fr), gutter: 1em, row-gutter: 0.5em,
-        align(left, strong(institution)),
-        align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
-        align(left, emph(title)),
-        align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+      grid(
+        columns: (1fr, 1fr),
+        gutter: 1em,
+        row-gutter: 0.5em,
+        align(left, strong(institution)), align(right, if location.len() > 0 { strong[#fa-location-dot() #location] }),
+        align(left, emph(title)), align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
       )
     }
 
@@ -226,9 +226,10 @@
   }
 
   block(inset: (left: 1em))[
-    #grid(columns: (2fr, 1fr), row-gutter: 0.5em,
-      align(left, proj),
-      align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
+    #grid(
+      columns: (2fr, 1fr),
+      row-gutter: 0.5em,
+      align(left, proj), align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
     )
 
     - #description

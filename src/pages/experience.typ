@@ -11,7 +11,7 @@
     [Maintained API gateway serving 10B+ requests daily, supporting 50+ internal teams, 200+ microservices, and millions of concurrently connected players across the vast library of Ubisoft titles.],
 
     // Major projects contributions:
-    [Led 8-month zero-downtime AWS multi-account migration, cutting costs 33% and latency by 5ms platform-wide.],
+    [Led 8-month zero-downtime AWS multi-account migration, cutting costs by 33% and latency by 5ms platform-wide.],
     [Spearheaded CloudFormation-to-CDK migration, enabling code reuse and making infrastructure accessible to the team.],
 
     // Feature and performance improvements:
@@ -22,12 +22,12 @@
 
     // Leadership and mentorship contributions:
     [Mentored juniors, interns, and contractors; designed ticketing system for triage; instituted rituals to boost velocity.],
-
+    
     // Day-to-day responsibilities:
     [Developed in C\#, TypeScript, and Lua; collaborated with cross-functional teams; participated in on-call; code reviews.],
     // [Diagnosed and hotfixed critical KillSwitch bug during active security breach, restoring service protection.],
     // [Served as technical liaison between engineering and management.],
-  )
+  ),
 )
 
 #experience(
@@ -39,7 +39,7 @@
   end: "August 2016",
   responsibilities: (
     [Developed TV set-top box client features with REST API integration and optimized build pipelines to accelerate delivery.],
-  )
+  ),
 )
 
 #experience(
@@ -51,7 +51,7 @@
   end: "August 2015",
   responsibilities: (
     [Modernized data collection tools from VBScript to C\#, leveraging WMI and SQL Server Reporting Services.],
-  )
+  ),
 )
 
 #experience(
@@ -63,5 +63,5 @@
   end: "December 2014",
   responsibilities: (
     [Built a MacOS network kernel extension prototype in C with a companion menu bar app and installer for distribution.],
-  )
+  ),
 )
