@@ -8,13 +8,13 @@
   end: "Present",
   responsibilities: (
     [Maintained API gateway serving 10B+ requests daily, supporting 50+ internal teams, 200+ microservices, and millions of concurrently connected players across the vast library of Ubisoft titles.],
-    [Led multi-account AWS migration (5-10 accounts), architecting VPC peering and routing for isolation and scalability.],
-    [Designed KillSwitch v3 for granular endpoint-level traffic control during platform-wide incidents.],
-    [Built observability with Prometheus, OpenTelemetry, and status endpoints across all gateway flavors.],
-    [Modernized release pipelines with independent GitLab CI/CD repos and blue/green deployments per flavor.],
-    [Improved security via WAF integration, access controls, and standardized X-Forwarded-AppId tracking.],
-    [Drove infrastructure modernization: AL2023 migration, Lambda upgrades, and nginx config optimization.],
-    [Optimized orchestration to cut redundant API calls to \<1%, saving hundreds of dollars daily.],
+    [Led 8-month zero-downtime AWS multi-account migration, cutting costs 33% and latency by 3ms platform-wide.],
+    [Automated deployments, reducing release time from 30 minutes of manual scripting to under 5 minutes.],
+    [Diagnosed and hotfixed critical KillSwitch bug during active security breach, restoring service protection.],
+    [Redesigned KillSwitch API for granular traffic control and blast radius isolation during incidents.],
+    [Mentored juniors, interns, and contractors; designed automated ticketing system for support triage.],
+    [Built observability stack (Prometheus, OpenTelemetry) and deployment tooling to streamline operations.],
+    [Instituted team rituals to boost velocity; serves as technical liaison between engineering and management.],
   )
 )
 
