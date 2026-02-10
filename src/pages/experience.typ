@@ -7,11 +7,14 @@
   start: "September 2017",
   end: "Present",
   responsibilities: (
-    [Operated the API gateway technology responsible for routing HTTP requests on Ubisoft's online platform.],
-    [Maintained Node.js and ASP.net RESTful microservices for access control and identity validation.],
-    [Planned and executed migrations from on-premises to AWS cloud for the API gateway and microservices.],
-    [Designed and implemented a distributed rate limiting solution for the API gateway using Redis and AWS technologies.],
-    [Initiated adoption of AWS CDK for team infrastructure as code and wrote TypeScript construct libraries for code reuse.],
+    [Maintained API gateway serving 10B+ requests daily, supporting 50+ internal teams, 200+ microservices, and millions of concurrently connected players across the vast library of Ubisoft titles.],
+    [Led multi-account AWS migration (5-10 accounts), architecting VPC peering and routing for isolation and scalability.],
+    [Designed KillSwitch v3 for granular endpoint-level traffic control during platform-wide incidents.],
+    [Built observability with Prometheus, OpenTelemetry, and status endpoints across all gateway flavors.],
+    [Modernized release pipelines with independent GitLab CI/CD repos and blue/green deployments per flavor.],
+    [Improved security via WAF integration, access controls, and standardized X-Forwarded-AppId tracking.],
+    [Drove infrastructure modernization: AL2023 migration, Lambda upgrades, and nginx config optimization.],
+    [Optimized orchestration to cut redundant API calls to \<1%, saving hundreds of dollars daily.],
   )
 )
 
@@ -23,9 +26,7 @@
   start: "January 2016",
   end: "August 2016",
   responsibilities: (
-    [Implemented features for TV set-top box client applications to fetch data from REST API servers.],
-    [Merged features from customer product release branch to the main line without causing regressions.],
-    [Created an advanced build script, integrating it into the existing system to speed up delivery cycle.],
+    [Developed TV set-top box client features with REST API integration and optimized build pipelines to accelerate delivery.],
   )
 )
 
@@ -37,9 +38,7 @@
   start: "May 2015",
   end: "August 2015",
   responsibilities: (
-    [Rewrote proprietary data collection products from VBScripts to a flexible C\# command-line application.],
-    [Configured application to manipulate Windows Management Instrumentation (WMI) for data collection.],
-    [Designed Microsoft SQL Server Reporting Services reports for customers to visualize data.],
+    [Modernized data collection tools from VBScript to C\#, leveraging WMI and SQL Server Reporting Services.],
   )
 )
 
@@ -51,7 +50,6 @@
   start: "September 2014",
   end: "December 2014",
   responsibilities: (
-    [Built a MacOS network kernel extension (NKE) prototype and a menu bar app for configuration and real-time stats.],
-    [Bundled the menu bar app, NKE, and configuration scripts with an installer DMG for distribution.],
+    [Built a MacOS network kernel extension prototype with companion menu bar app and installer for distribution.],
   )
 )
