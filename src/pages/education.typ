@@ -5,10 +5,10 @@
   degree: "Bachelor",
   discipline: "Computer Science",
   distinction: "Honours",
-  focus: "Computer Game Development",
-  minors: (
-    "Japanese",
-  ),
+  // focus: "Computer Game Development",
+  // minors: (
+  //   "Japanese",
+  // ),
   location: "Ottawa, Canada",
   start: "2012",
   end: "2017",

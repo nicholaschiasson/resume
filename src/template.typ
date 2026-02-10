@@ -188,7 +188,7 @@
         align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
       )
     } else {
-      grid(columns: (4fr, 1fr), gutter: 1em, row-gutter: 0.5em,
+      grid(columns: (1fr, 1fr), gutter: 1em, row-gutter: 0.5em,
         align(left, strong(institution)),
         align(right, if location.len() > 0 {strong[#fa-location-dot() #location]}),
         align(left, emph(title)),
@@ -226,7 +226,7 @@
   }
 
   block(inset: (left: 1em))[
-    #grid(columns: (3fr, 1fr), row-gutter: 0.5em,
+    #grid(columns: (2fr, 1fr), row-gutter: 0.5em,
       align(left, proj),
       align(right)[#emph[#start #if end.len() > 0 [ --- #end ]]],
     )

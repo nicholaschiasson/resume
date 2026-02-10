@@ -21,11 +21,22 @@
 #v(1em)
 
 #box[
-  == Education
+  #grid(columns: (1.5fr, 1fr), gutter: 1em, row-gutter: 0.5em,
+    [
+      == Technical Skills
 
-  #line(length: 100%, stroke: 0.5pt)
+      #line(length: 100%, stroke: 0.5pt)
 
-  #include "pages/education.typ";
+      #include "pages/skills.typ";
+    ],
+    [
+      == Education
+
+      #line(length: 100%, stroke: 0.5pt)
+
+      #include "pages/education.typ";
+    ],
+  )
 ]
 
 #v(1em)
@@ -36,14 +47,4 @@
   #line(length: 100%, stroke: 0.5pt)
 
   #include "pages/projects.typ";
-]
-
-#v(1em)
-
-#box[
-  == Technical Skills
-
-  #line(length: 100%, stroke: 0.5pt)
-
-  #include "pages/skills.typ";
 ]
