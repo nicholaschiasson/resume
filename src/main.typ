@@ -2,7 +2,7 @@
 
 #show: resume.with(
   name: "Nicholas Chiasson",
-  phone: " +16138753155",
+  phone: "+16138753155",
   email: "nicholasomerchiasson@gmail.com",
   // Note: Not including personal site due to lack of space.
   // homepage: "https://nicholas.chiasson.dev",

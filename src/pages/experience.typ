@@ -8,11 +8,11 @@
   end: "Present",
   responsibilities: (
     // General mandate:
-    [Maintained API gateway serving 10B+ requests daily, supporting 50+ internal teams, 200+ microservices, and millions of concurrently connected players across the vast library of Ubisoft titles.],
+    [Maintained API gateway serving 10B+ daily requests across 200+ microservices; ensured reliability for millions of concurrent players across all Ubisoft titles and 50+ internal teams.],
 
     // Major projects contributions:
-    [Led 8-month zero-downtime AWS multi-account migration, cutting costs by 33% and latency by 5ms platform-wide.],
-    [Spearheaded CloudFormation-to-CDK migration, enabling code reuse and making infrastructure accessible to the team.],
+    [Led 8-month, zero-downtime AWS multi-account migration; reduced costs by 33% and platform latency by \~5 ms.],
+    [Spearheaded CloudFormation to CDK migration; enabled code reuse and broadened cross-team infrastructure contribution.],
 
     // Feature and performance improvements:
     [Automated deployments with version-controlled releases and safeguards, reducing release time from 30 to under 5 minutes.],
@@ -22,7 +22,6 @@
 
     // Leadership and mentorship contributions:
     [Mentored juniors, interns, and contractors; designed ticketing system for triage; instituted rituals to boost velocity.],
-    
     // Day-to-day responsibilities:
     [Developed in C\#, TypeScript, and Lua; collaborated with cross-functional teams; participated in on-call; code reviews.],
     // [Diagnosed and hotfixed critical KillSwitch bug during active security breach, restoring service protection.],

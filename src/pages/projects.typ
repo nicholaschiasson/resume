@@ -18,7 +18,7 @@
   name: "fcidr",
   description: "Rust library exposing a data structure to perform set operations on collections of CIDR ranges.",
   responsibilities: (
-    "Addressed the need for efficient CIDR range operations for firewall optimization initiative at Ubisoft.",
+    "Addressed the need for efficient CIDR range operations for Ubisoft firewall optimization initiative.",
   ),
   start: "July 2023",
   skills: (
@@ -44,7 +44,7 @@
   name: "ngx_upstream_jdomain",
   description: "Nginx module enabling upstream servers to be dynamically reconfigured with DNS query results at runtime.",
   responsibilities: (
-    "Facilitated more flexible configurability of Nginx servers maintained at Ubisoft, and eliminated unnecessary server reloads.",
+    "Facilitated greater flexibility in Ubisoft Nginx upstream configuration and eliminated unnecessary server reloads.",
   ),
   start: "November 2019",
   end: "October 2025",
