@@ -4,10 +4,12 @@
   name: "Nicholas Chiasson",
   phone: "+16138753155",
   email: "nicholasomerchiasson@gmail.com",
-  // Note: Not including personal site due to lack of space.
-  // homepage: "https://nicholas.chiasson.dev",
+  homepage: "https://nicholas.chiasson.dev",
   github: "nicholaschiasson",
   linkedin: "nicholaschiasson",
+  ambition: "Senior Software Engineer specializing in high-scale API platforms, reliability, and cloud infrastructure."
+  // ambition: "Platform engineer with deep experience building and operating API gateways at global scale, delivering resilient traffic control, observability, and secure automation."
+  // ambition: "Platform engineer delivering resilient API gateways, observability, and IaC automation."
 )
 
 #box[

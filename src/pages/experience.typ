@@ -10,15 +10,16 @@
     // General mandate:
     [Maintained API gateway serving 10B+ daily requests across 200+ microservices; ensured reliability for millions of concurrent players across all Ubisoft titles and 50+ internal teams.],
 
-    // Major projects contributions:
-    [Led 8-month, zero-downtime AWS multi-account migration; reduced costs by 33% and platform latency by \~5 ms.],
-    [Spearheaded CloudFormation to CDK migration; enabled code reuse and broadened cross-team infrastructure contribution.],
-
     // Feature and performance improvements:
-    [Automated deployments with version-controlled releases and safeguards, reducing release time from 30 to under 5 minutes.],
+    [Implemented SaaS features for a self-served API Gateway: routing, traffic mirroring, rate limiting, and access control.],
     [Redesigned KillSwitches service API for granular traffic control and blast radius isolation during incidents.],
     [Optimized firewall integration: replaced per-host iptables agents with Lambda-driven Security Group policy enforcement.],
+    [Automated deployments with version-controlled releases and safeguards, reducing release time from 30 to under 5 minutes.],
     [Built observability stack with custom Prometheus exporters and Grafana dashboards for deployment and traffic visibility.],
+
+    // Major projects contributions:
+    [Led zero-downtime AWS multi-account migration; reduced costs by 33% and platform latency by \~5 ms.],
+    [Spearheaded CloudFormation to CDK migration; enabled code reuse and broadened cross-team infrastructure contribution.],
 
     // Leadership and mentorship contributions:
     [Mentored juniors, interns, and contractors; designed ticketing system for triage; instituted rituals to boost velocity.],

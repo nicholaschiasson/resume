@@ -66,11 +66,13 @@
 
       let c = contacts.map(contact => [#contact.symbol #contact.content]).flatten()
 
+      set text(10pt)
       c.join[ *|* ]
     }
 
     #if ambition.len() > 0 [
-      #block(below: 0.5em, ambition)
+      #set text(12pt)
+      #block(below: bottom_padding + 0.5em, ambition)
     ]
   ]
 
