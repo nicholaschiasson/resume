@@ -1,6 +1,7 @@
 #import "../template.typ": skills;
 
-#skills(category: "Languages",
+#skills(
+  category: "Languages",
   "Rust",
   "Go",
   "Python",
@@ -8,6 +9,7 @@
   "TypeScript",
   "JavaScript",
   "Lua",
+  "Zig",
   "C",
   "C++",
   "Java",
@@ -15,16 +17,19 @@
   "SQL",
 )
 
-#skills(category: "Technologies",
+#skills(
+  category: "Technologies",
   "AWS",
+  // "AWS CDK",
+  // "CloudFormation",
   "Docker",
-  "Express.js",
   "GitHub Actions",
   "GitLab CI",
   "Grafana",
-  "MySQL",
   "Nginx",
+  "OpenTelemetry",
+  "PostgreSQL",
   "Prometheus",
   "Redis",
-  "Splunk",
+  // "Splunk",
 )

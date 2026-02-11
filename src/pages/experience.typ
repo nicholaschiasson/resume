@@ -2,17 +2,31 @@
 
 #experience(
   organization: "Ubisoft Montreal",
-  role: "Software Engineer",
+  role: "Senior Software Engineer",
   location: "Montreal, Canada",
   start: "September 2017",
   end: "Present",
   responsibilities: (
-    [Operated the API gateway technology responsible for routing HTTP requests on Ubisoft's online platform.],
-    [Maintained Node.js and ASP.net RESTful microservices for access control and identity validation.],
-    [Planned and executed migrations from on-premises to AWS cloud for the API gateway and microservices.],
-    [Designed and implemented a distributed rate limiting solution for the API gateway using Redis and AWS technologies.],
-    [Initiated adoption of AWS CDK for team infrastructure as code and wrote TypeScript construct libraries for code reuse.],
-  )
+    // General mandate:
+    [Maintained API gateway serving 10B+ daily requests across 200+ microservices; ensured reliability for millions of concurrent players across all Ubisoft titles and 50+ internal teams.],
+
+    // Major projects contributions:
+    [Led 8-month, zero-downtime AWS multi-account migration; reduced costs by 33% and platform latency by \~5 ms.],
+    [Spearheaded CloudFormation to CDK migration; enabled code reuse and broadened cross-team infrastructure contribution.],
+
+    // Feature and performance improvements:
+    [Automated deployments with version-controlled releases and safeguards, reducing release time from 30 to under 5 minutes.],
+    [Redesigned KillSwitches service API for granular traffic control and blast radius isolation during incidents.],
+    [Optimized firewall integration: replaced per-host iptables agents with Lambda-driven Security Group policy enforcement.],
+    [Built observability stack with custom Prometheus exporters and Grafana dashboards for deployment and traffic visibility.],
+
+    // Leadership and mentorship contributions:
+    [Mentored juniors, interns, and contractors; designed ticketing system for triage; instituted rituals to boost velocity.],
+    // Day-to-day responsibilities:
+    [Developed in C\#, TypeScript, and Lua; collaborated with cross-functional teams; participated in on-call; code reviews.],
+    // [Diagnosed and hotfixed critical KillSwitch bug during active security breach, restoring service protection.],
+    // [Served as technical liaison between engineering and management.],
+  ),
 )
 
 #experience(
@@ -23,10 +37,8 @@
   start: "January 2016",
   end: "August 2016",
   responsibilities: (
-    [Implemented features for TV set-top box client applications to fetch data from REST API servers.],
-    [Merged features from customer product release branch to the main line without causing regressions.],
-    [Created an advanced build script, integrating it into the existing system to speed up delivery cycle.],
-  )
+    [Developed TV set-top box client features with REST API integration and optimized build pipelines to accelerate delivery.],
+  ),
 )
 
 #experience(
@@ -37,10 +49,8 @@
   start: "May 2015",
   end: "August 2015",
   responsibilities: (
-    [Rewrote proprietary data collection products from VBScripts to a flexible C\# command-line application.],
-    [Configured application to manipulate Windows Management Instrumentation (WMI) for data collection.],
-    [Designed Microsoft SQL Server Reporting Services reports for customers to visualize data.],
-  )
+    [Modernized data collection tools from VBScript to C\#, leveraging WMI and SQL Server Reporting Services.],
+  ),
 )
 
 #experience(
@@ -51,7 +61,6 @@
   start: "September 2014",
   end: "December 2014",
   responsibilities: (
-    [Built a MacOS network kernel extension (NKE) prototype and a menu bar app for configuration and real-time stats.],
-    [Bundled the menu bar app, NKE, and configuration scripts with an installer DMG for distribution.],
-  )
+    [Built a MacOS network kernel extension prototype in C with a companion menu bar app and installer for distribution.],
+  ),
 )
