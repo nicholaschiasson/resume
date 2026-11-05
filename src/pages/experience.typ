@@ -37,7 +37,7 @@
     // Leadership and mentorship contributions:
     [Mentored juniors, interns, and contractors; designed ticketing system for triage; instituted rituals to boost velocity.],
     // Day-to-day responsibilities:
-    [Developed in C\#, TypeScript, and Lua; collaborated with cross-functional teams; participated in on-call; code reviews.],
+    // [Developed in C\#, TypeScript, and Lua; collaborated with cross-functional teams; participated in on-call; code reviews.],
     // [Diagnosed and hotfixed critical KillSwitch bug during active security breach, restoring service protection.],
     // [Served as technical liaison between engineering and management.],
   ),
@@ -55,26 +55,26 @@
   ),
 )
 
-#experience(
-  organization: "Enhansoft Inc.",
-  role: "Junior Programmer",
-  coop: true,
-  location: "Nepean, Canada",
-  start: "May 2015",
-  end: "August 2015",
-  responsibilities: (
-    [Modernized data collection tools from VBScript to C\#, leveraging WMI and SQL Server Reporting Services.],
-  ),
-)
+// #experience(
+//   organization: "Enhansoft Inc.",
+//   role: "Junior Programmer",
+//   coop: true,
+//   location: "Nepean, Canada",
+//   start: "May 2015",
+//   end: "August 2015",
+//   responsibilities: (
+//     [Modernized data collection tools from VBScript to C\#, leveraging WMI and SQL Server Reporting Services.],
+//   ),
+// )
 
-#experience(
-  organization: "LiveQoS Inc.",
-  role: "Software Developer Intern",
-  coop: true,
-  location: "Kanata, Canada",
-  start: "September 2014",
-  end: "December 2014",
-  responsibilities: (
-    [Built a MacOS network kernel extension prototype in C with a companion menu bar app and installer for distribution.],
-  ),
-)
+// #experience(
+//   organization: "LiveQoS Inc.",
+//   role: "Software Developer Intern",
+//   coop: true,
+//   location: "Kanata, Canada",
+//   start: "September 2014",
+//   end: "December 2014",
+//   responsibilities: (
+//     [Built a MacOS network kernel extension prototype in C with a companion menu bar app and installer for distribution.],
+//   ),
+// )
