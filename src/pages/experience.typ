@@ -1,11 +1,24 @@
 #import "../template.typ": experience;
 
 #experience(
+  organization: "Bell Media",
+  role: "Software Engineer",
+  location: "Montreal, Canada",
+  start: "July 2026",
+  end: "Present",
+  responsibilities: (
+    [Maintained core video processing pipeline platform responsible for transcoding and delivering video assets for products such as Crave, TSN, and RDS.],
+    [Developed internal administrator tool to facilitate server maintenance operations for operations team.],
+    [Contributed to automated video segment identification and clipping system outputting to linear video delivery streams for ads insertion.]
+  ),
+)
+
+#experience(
   organization: "Ubisoft Montreal",
   role: "Senior Software Engineer",
   location: "Montreal, Canada",
   start: "September 2017",
-  end: "Present",
+  end: "July 2026",
   responsibilities: (
     // General mandate:
     [Maintained API gateway serving 10B+ daily requests across 200+ microservices; ensured reliability for millions of concurrent players across all Ubisoft titles and 50+ internal teams.],
