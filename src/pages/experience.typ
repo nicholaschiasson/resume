@@ -1,11 +1,24 @@
 #import "../template.typ": experience;
 
 #experience(
+  organization: "Bell Media",
+  role: "Software Engineer",
+  location: "Montreal, Canada",
+  start: "July 2026",
+  end: "Present",
+  responsibilities: (
+    [Maintained core video processing pipeline platform responsible for transcoding and delivering video assets for products such as Crave, TSN, and RDS.],
+    [Developed internal administrator tool to facilitate server maintenance operations for operations team.],
+    [Contributed to automated video segment identification and clipping system outputting to linear video delivery streams for ads insertion.]
+  ),
+)
+
+#experience(
   organization: "Ubisoft Montreal",
   role: "Senior Software Engineer",
   location: "Montreal, Canada",
   start: "September 2017",
-  end: "Present",
+  end: "July 2026",
   responsibilities: (
     // General mandate:
     [Maintained API gateway serving 10B+ daily requests across 200+ microservices; ensured reliability for millions of concurrent players across all Ubisoft titles and 50+ internal teams.],
@@ -24,7 +37,7 @@
     // Leadership and mentorship contributions:
     [Mentored juniors, interns, and contractors; designed ticketing system for triage; instituted rituals to boost velocity.],
     // Day-to-day responsibilities:
-    [Developed in C\#, TypeScript, and Lua; collaborated with cross-functional teams; participated in on-call; code reviews.],
+    // [Developed in C\#, TypeScript, and Lua; collaborated with cross-functional teams; participated in on-call; code reviews.],
     // [Diagnosed and hotfixed critical KillSwitch bug during active security breach, restoring service protection.],
     // [Served as technical liaison between engineering and management.],
   ),
@@ -42,26 +55,26 @@
   ),
 )
 
-#experience(
-  organization: "Enhansoft Inc.",
-  role: "Junior Programmer",
-  coop: true,
-  location: "Nepean, Canada",
-  start: "May 2015",
-  end: "August 2015",
-  responsibilities: (
-    [Modernized data collection tools from VBScript to C\#, leveraging WMI and SQL Server Reporting Services.],
-  ),
-)
+// #experience(
+//   organization: "Enhansoft Inc.",
+//   role: "Junior Programmer",
+//   coop: true,
+//   location: "Nepean, Canada",
+//   start: "May 2015",
+//   end: "August 2015",
+//   responsibilities: (
+//     [Modernized data collection tools from VBScript to C\#, leveraging WMI and SQL Server Reporting Services.],
+//   ),
+// )
 
-#experience(
-  organization: "LiveQoS Inc.",
-  role: "Software Developer Intern",
-  coop: true,
-  location: "Kanata, Canada",
-  start: "September 2014",
-  end: "December 2014",
-  responsibilities: (
-    [Built a MacOS network kernel extension prototype in C with a companion menu bar app and installer for distribution.],
-  ),
-)
+// #experience(
+//   organization: "LiveQoS Inc.",
+//   role: "Software Developer Intern",
+//   coop: true,
+//   location: "Kanata, Canada",
+//   start: "September 2014",
+//   end: "December 2014",
+//   responsibilities: (
+//     [Built a MacOS network kernel extension prototype in C with a companion menu bar app and installer for distribution.],
+//   ),
+// )
